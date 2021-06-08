@@ -16,7 +16,7 @@
         </header>
         <div class="recherche recherche--globale">
             <input class="input-recherche input-recherche--globale" type="search" placeholder="Rechercher un ingrédient, apareil">
-            <button class="bouton-recherche" type="button" title="rechercher">
+            <button class="bouton bouton-recherche" type="button" title="rechercher">
                 <i class="fas fa-search"></i>
             </button>
         </div>
@@ -24,12 +24,29 @@
             <!--zone d'affichage des tags sélectionnés-->
         </div>
         <div class="filtre-box">
-            
+            <div class="filtre-box__ingredients">
+                
+                <div class="filtre filtre--ingredient-reduit">
+                    <span>Ingrédients</span>
+                </div>
 
+                <div class="filtre filtre--ingredient-etendu">
+                    <div class="barre-recherche barre-recherche--ingredient">
+                        <input type="search" class="input-recherche input-recherche--ingrédients" placeholder="Recherche un ingrédient">
+                    </div>
+                </div>
+
+                <div class="logo-chevron">
+                    <input type="checkbox" class="checkbox checkbox--ingredient" id="checkbox-ingredient">
+                    <label for="checkbox-ingredient">
+                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-up"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="filtre-box__appareil">filtre 2</div>
+            <div class="filtre-box__ustensiles">filtre 3</div>
         </div>
-
-
-
 
 
     </body>
