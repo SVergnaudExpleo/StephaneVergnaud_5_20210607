@@ -1,0 +1,8 @@
+//gestion des marge et padding
+@mixin margin-null {
+    margin: 0;
+}
+@mixin padding-null {
+    padding: 0;
+}
+

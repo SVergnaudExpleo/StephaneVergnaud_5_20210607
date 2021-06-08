@@ -1,0 +1,21 @@
+body{
+    padding: 50px 50px 0 50px;
+    @include margin-null;
+}
+
+header{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.recherche{
+    &--globale{
+        padding: 10px;
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        background-color: $background-clair;
+        border-radius: 10px;
+    }
+}
+

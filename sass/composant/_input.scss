@@ -1,0 +1,10 @@
+.input-recherche{
+    border: none;
+    background: none;
+    @include padding-null;
+    @include margin-null;
+    &--globale{
+        height: 50px;
+        font-size: 1.2em;
+    }
+}
