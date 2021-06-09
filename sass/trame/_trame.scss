@@ -18,21 +18,3 @@ header{
         border-radius: 10px;
     }
 }
-
-.filtre-box{
-    display: flex;
-    flex-direction: row;
-    &__appareil{
-        margin: 0 20px 0 20px;
-    }
-}
-
-.filtre--ingredient-etendu{
-    display: none;
-}
-.checkbox{
-    //définir un style par defaut sans case
-    .checkbox--ingredient:checked .filtre--ingredient-etendu{
-        display: unset;
-    }
-}
