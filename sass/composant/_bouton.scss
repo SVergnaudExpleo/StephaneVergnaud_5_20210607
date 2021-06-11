@@ -1,4 +1,10 @@
 .bouton{
     background: none;
     border: none;
+    &--ingredient{
+        display: flex;
+        align-items: center;
+        height: $dim-bouton-filtre;
+    }
 }
+

@@ -4,9 +4,11 @@
 @import "./outils/variable";
 @import "./outils/mixin";
 @import "./base/theme";
+@import "./composant/spacer";
 @import "./composant/logoimage";
 @import "./composant/bouton";
 @import "./composant/input";
 @import "./trame/trame";
 // Selection des modules Bootstrap utilisés
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
