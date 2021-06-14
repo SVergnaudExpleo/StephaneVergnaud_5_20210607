@@ -18,3 +18,17 @@ header{
         border-radius: 10px;
     }
 }
+
+.zone-filtre{
+    display: grid;
+    grid-template-areas: "recherche spacer bouton";
+    .zone-dropdown{
+        grid-area: recherche;
+    }
+    .spacer{
+        grid-area: spacer;
+    }
+    .switch-off{
+        grid-area: bouton;
+    }
+}
