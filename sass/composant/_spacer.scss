@@ -1,9 +1,13 @@
 .spacer{
     &--10{
+        @include margin-null;
+        @include padding-null;
         width: 10px;
         height: 5px;
     }
     &--20{
+        @include margin-null;
+        @include padding-null;
         width: 20px;
         height: 5px;
     }

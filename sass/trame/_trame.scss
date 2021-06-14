@@ -8,6 +8,8 @@ header{
     display: flex;
     justify-content: center;
 }
+
+// Barres de recherche
 .recherche{
     &--globale{
         padding: 10px;
@@ -15,20 +17,45 @@ header{
         display: grid;
         grid-template-columns: 1fr auto;
         background-color: $background-clair;
-        border-radius: 10px;
+        @include radius-filtre;
+    }
+    &--filtre{
+        display: flex;
+        flex-direction: row;
+        @include radius-filtre;
+    }
+}
+.filtre-box{
+    position: absolute;
+    z-index: 2;
+    &__ingredient{
+        background-color: $couleur-ingredient;
+        @include radius-filtre;
     }
 }
 
-.zone-filtre{
+// Filtres developpés
+.filtre-developpe{
+    @include radius-filtre;
+}
+
+// Liste des filtres
+.liste-recherche{
     display: grid;
-    grid-template-areas: "recherche spacer bouton";
-    .zone-dropdown{
-        grid-area: recherche;
-    }
-    .spacer{
-        grid-area: spacer;
-    }
-    .switch-off{
-        grid-area: bouton;
-    }
+    grid-template-columns: auto auto auto;
+    row-gap: 10px;
+    gap: 50px;
+    padding: 10px 20px 20px 20px; 
+}
+
+// Zone contenant les cartes des recettes
+.lorem-class{
+    position: relative;
+    z-index: 1;
+    bottom: -70px;
+}
+.lorem-class-1{
+    position: relative;
+    z-index: 1;
+    bottom: -70px;
 }

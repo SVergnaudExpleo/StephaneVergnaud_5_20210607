@@ -26,38 +26,58 @@
             <div>je suis un tag test 2</div>
         </div>
         <!-- Zone des filtres-->
-        <div class="container p-0 m-0">
+        <div class="filtre-box container p-0 m-0">
             <div class="row row-cols-3 p-0 m-0">
-                <div class="bg-ingredient col-auto p-0 m-0"><!-- Filtre des ingrédients-->
-                    <div id="switch-on-ingredient" class="switch-on--ingredient  container p-0 m-0">
-                        <button class="bouton bouton--ingredient px-3 py-0">
-                            Ingrédient <div class="spacer--20 m-0 p-0"></div>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                    </div>
-                    <div id="zone-filtre-ingredient" class="zone-filtre p-0 m-0">
-                        <div class="zone-dropdown p-0 m-0 bg-ingredient">
-                            <div class="bg-ingredient" type="button" id="dropdown-recherche-ingredient" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="true">
-                                <input type="search" placeholder="Recherche un ingrédient">
-                            </div>
-                            <ul id="dropdown-menu-ingredient" class="bg-ingredient dropdown-menu" aria-labelledby="dropdown-recherche-ingredient">
-                                <li class="dropdown-item">valleur dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd 1</li>
-                                <li class="dropdown-item">valleur dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd 2</li>
-                            </ul>
+                <!-- Filtre des ingrédients-->
+                <div class="filtre-box__ingredient col-auto p-0 m-0">
+                    <button id="switch-on-ingredient" class="bouton bouton--ingredient-on px-3">
+                        Ingrédient <div class="spacer--20 m-0 p-0"></div>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="filtre-developpe-ingredient" class="filtre-developpe filtre-developpe--ingredient">
+                        <div class="recherche recherche--filtre">
+                            <input class="input-recherche input-recherche--ingredient" type="search" placeholder="Recherche un ingrédient">
+                            <i id="switch-off-ingredient" class="bouton bouton--ingredient-off fas fa-chevron-up"></i>
                         </div>
-                        <div class="spacer spacer--10 m-0 p-0"></div>
-                        <i id="switch-off-ingredient" class="switch-off switch-off--ingredient fas fa-chevron-up p-0 m-0"></i>
+                        
+                        <div id="liste-recherche-ingredient" class="liste-recherche liste-recherche--ingredient">
+                            <div class="">valeur test 1</div>
+                            <div class="">valeur test 2</div>
+                            <div class="">valeur test 1</div>
+                            <div class="">valeur test 2</div>
+                            <div class="">valeur test 1</div>
+                            <div class="">valeur test 2</div>
+                            <div class="">valeur test 1</div>
+                            <div class="">valeur test 2</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="col-auto p-0 mx-3"><!-- Filtre appareil-->
-                    filtre-box
+
+                <div class="filtre-box__appareil col-auto p-0 mx-3"><!-- Filtre appareil-->
+                    filtre-appareil
                 </div>
-                <div class="col-auto p-0 m-0"> <!-- Filtre ustensile-->
-                    filtre-box
+                <div class="filtre-box__ustensile col-auto p-0 m-0"> <!-- Filtre ustensile-->
+                    filtre-ustensile
                 </div>
             </div>
         </div>
+        <div class="lorem-class">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </div>
+
+        <div class="lorem-class-1">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        </div>
+
+
+
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <script src="./index.js"></script>
     </body>

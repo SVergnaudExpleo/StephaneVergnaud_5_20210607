@@ -7,4 +7,11 @@
         height: 50px;
         font-size: 1.2em;
     }
+    &--ingredient{
+        background-color: $couleur-ingredient;
+        height: 50px;
+        width: 100%;
+        padding: 0 10px 0 10px;
+        @include radius-filtre;
+    }
 }

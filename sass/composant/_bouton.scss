@@ -1,10 +1,16 @@
 .bouton{
-    background: none;
     border: none;
-    &--ingredient{
+    &--ingredient-on{
         display: flex;
         align-items: center;
         height: $dim-bouton-filtre;
+        background-color: $couleur-ingredient;
+        @include radius-filtre;
+    }
+    &--ingredient-off{
+        height: $dim-bouton-filtre;
+        background-color: $couleur-ingredient;
+        width: 50px;
+        @include radius-filtre;
     }
 }
-
