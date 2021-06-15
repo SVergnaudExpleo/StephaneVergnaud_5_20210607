@@ -1,16 +1,33 @@
 .bouton{
     border: none;
-    &--ingredient-on{
+    &--on{
         display: flex;
         align-items: center;
         height: $dim-bouton-filtre;
-        background-color: $couleur-ingredient;
-        @include radius-filtre;
+        border-radius: $rayon-filtre;
+        color: white;
+        &-ingredient{
+            background-color: $couleur-ingredient;
+        }
+        &-appareil{
+            background-color: $couleur-appareil;
+        }
+        &-ustensil{
+            background-color: $couleur-ustensil;
+        }
     }
-    &--ingredient-off{
+    &--off{
         height: $dim-bouton-filtre;
-        background-color: $couleur-ingredient;
         width: 50px;
-        @include radius-filtre;
+        border-top-right-radius: $rayon-filtre;
+        &-ingredient{
+            background-color: $couleur-ingredient;
+        }
+        &-appareil{
+            background-color: $couleur-appareil;
+        }
+        &-ustensil{
+            background-color: $couleur-ustensil;
+        }
     }
 }

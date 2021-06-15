@@ -1,14 +1,14 @@
 body{
+    position: relative;
     padding: 50px 50px 0 50px;
     @include margin-null;
 }
-
 header{
+    position: relative;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
 }
-
 // Barres de recherche
 .recherche{
     &--globale{
@@ -17,45 +17,84 @@ header{
         display: grid;
         grid-template-columns: 1fr auto;
         background-color: $background-clair;
-        @include radius-filtre;
     }
     &--filtre{
         display: flex;
         flex-direction: row;
-        @include radius-filtre;
     }
 }
+// Zone des filtres
 .filtre-box{
-    position: absolute;
-    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    column-gap: 20px;
+    color: white;
     &__ingredient{
-        background-color: $couleur-ingredient;
-        @include radius-filtre;
+        position: relative;
+        z-index: 2;
+    }
+    &__appareil{
+        position: relative;
+        z-index: 2;
+    }
+    &__ustensil{
+        position: relative;
+        z-index: 2;
     }
 }
-
-// Filtres developpés
-.filtre-developpe{
-    @include radius-filtre;
-}
-
 // Liste des filtres
 .liste-recherche{
     display: grid;
     grid-template-columns: auto auto auto;
     row-gap: 10px;
-    gap: 50px;
-    padding: 10px 20px 20px 20px; 
+    column-gap: 50px;
+    padding: 10px 20px 20px 20px;
+    border-bottom-left-radius: $rayon-filtre;
+    border-bottom-right-radius: $rayon-filtre;
+    &--ingredient{
+        background-color: $couleur-ingredient;
+        div:hover{
+            cursor: pointer;
+            background-color: $couleur-ingredient-clair;
+        }
+    }
+    &--appareil{
+        background-color: $couleur-appareil;
+        div:hover{
+            cursor: pointer;
+            background-color: $couleur-appareil-clair;
+        }
+    }
+    &--ustensil{
+        background-color: $couleur-ustensil;
+        div:hover{
+            cursor: pointer;
+            background-color: $couleur-ustensil-clair;
+        }
+    }
 }
-
+// Apparence des tag
+.tag-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 10px;
+}
+.tag{
+    border-radius: $rayon-tag;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    height: 30px;
+    padding: 0 5px 0 5px;
+    &--ingredient{
+        background-color: $couleur-ingredient;
+    }
+}
 // Zone contenant les cartes des recettes
 .lorem-class{
-    position: relative;
+    position: absolute;
     z-index: 1;
-    bottom: -70px;
-}
-.lorem-class-1{
-    position: relative;
-    z-index: 1;
-    bottom: -70px;
+    top: 360px;
 }

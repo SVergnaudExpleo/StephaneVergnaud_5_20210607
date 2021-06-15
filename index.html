@@ -21,43 +21,80 @@
             </button>
         </div>
         <!-- Zone d'affichage des tags sélectionnés-->
-        <div class="d-flex flex-row" id="tag-zone">
-            <div>je suis un tag test 1</div>
-            <div>je suis un tag test 2</div>
+        <div id="tag-box" class="tag-box" >
+            <div id="tag-ingredient" class="tag tag--ingredient">
+                <div>tag test ingredient</div>
+                <i class="far fa-times-circle"></i>
+            </div>
+            <div id="tag-ingredient" class="tag tag--ingredient">
+                tag 2
+            </div>
         </div>
         <!-- Zone des filtres-->
-        <div class="filtre-box container p-0 m-0">
-            <div class="row row-cols-3 p-0 m-0">
-                <!-- Filtre des ingrédients-->
-                <div class="filtre-box__ingredient col-auto p-0 m-0">
-                    <button id="switch-on-ingredient" class="bouton bouton--ingredient-on px-3">
-                        Ingrédient <div class="spacer--20 m-0 p-0"></div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div id="filtre-developpe-ingredient" class="filtre-developpe filtre-developpe--ingredient">
-                        <div class="recherche recherche--filtre">
-                            <input class="input-recherche input-recherche--ingredient" type="search" placeholder="Recherche un ingrédient">
-                            <i id="switch-off-ingredient" class="bouton bouton--ingredient-off fas fa-chevron-up"></i>
-                        </div>
-                        
-                        <div id="liste-recherche-ingredient" class="liste-recherche liste-recherche--ingredient">
-                            <div class="">valeur test 1</div>
-                            <div class="">valeur test 2</div>
-                            <div class="">valeur test 1</div>
-                            <div class="">valeur test 2</div>
-                            <div class="">valeur test 1</div>
-                            <div class="">valeur test 2</div>
-                            <div class="">valeur test 1</div>
-                            <div class="">valeur test 2</div>
-                        </div>
+        <div class="filtre-box p-0 m-0">
+            <!-- Filtre des ingrédients-->
+            <div class="filtre-box__ingredient p-0 m-0">
+                <button id="switch-on-ingredient" class="bouton bouton--on bouton--on-ingredient px-3">
+                    Ingrédient <div class="spacer--20 m-0 p-0"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="filtre-developpe-ingredient" class="filtre-developpe filtre-developpe--ingredient">
+                    <div class="recherche recherche--filtre">
+                        <input class="input-recherche input-recherche--ingredient" type="search" placeholder="Recherche un ingrédient">
+                        <i id="switch-off-ingredient" class="bouton bouton--off bouton--off-ingredient fas fa-chevron-up"></i>
+                    </div>
+                    
+                    <div id="liste-recherche-ingredient" class="liste-recherche liste-recherche--ingredient">
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
                     </div>
                 </div>
-
-                <div class="filtre-box__appareil col-auto p-0 mx-3"><!-- Filtre appareil-->
-                    filtre-appareil
+            </div>
+            <!-- Filtre appareil-->
+            <div class="filtre-box__appareil p-0 m-0">
+                <button id="switch-on-appareil" class="bouton bouton--on bouton--on-appareil px-3">
+                    Appareil <div class="spacer--20 m-0 p-0"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="filtre-developpe-appareil" class="filtre-developpe filtre-developpe--appareil">
+                    <div class="recherche recherche--filtre">
+                        <input class="input-recherche input-recherche--appareil" type="search" placeholder="Recherche un appareil">
+                        <i id="switch-off-appareil" class="bouton bouton--off bouton--off-appareil fas fa-chevron-up"></i>
+                    </div>
+                    <div id="liste-recherche-appareil" class="liste-recherche liste-recherche--appareil">
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                    </div>
                 </div>
-                <div class="filtre-box__ustensile col-auto p-0 m-0"> <!-- Filtre ustensile-->
-                    filtre-ustensile
+            </div>
+            <!-- Filtre ustensile-->
+            <div class="filtre-box__ustensil p-0 m-0">
+                <button id="switch-on-ustensil" class="bouton bouton--on bouton--on-ustensil px-3">
+                    Appareil <div class="spacer--20 m-0 p-0"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="filtre-developpe-ustensil" class="filtre-developpe filtre-developpe--ustensil">
+                    <div class="recherche recherche--filtre">
+                        <input class="input-recherche input-recherche--ustensil" type="search" placeholder="Recherche un ustensile">
+                        <i id="switch-off-ustensil" class="bouton bouton--off bouton--off-ustensil fas fa-chevron-up"></i>
+                    </div>
+                    
+                    <div id="liste-recherche-ustensil" class="liste-recherche liste-recherche--ustensil">
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                        <div class="">valeur test 2</div>
+                        <div class="">valeur test 1</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -68,16 +105,6 @@
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         </div>
 
-        <div class="lorem-class-1">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </div>
-
-
-
-        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <script src="./index.js"></script>
     </body>

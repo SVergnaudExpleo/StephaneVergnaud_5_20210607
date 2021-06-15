@@ -1,20 +1,43 @@
-//constante du DOM ingredient
+// constante du DOM ingredient
 const switchOnIngredient = document.getElementById("switch-on-ingredient");
 const switchOffIngredient = document.getElementById("switch-off-ingredient");
 const filtreDeveloppeIngredient = document.getElementById("filtre-developpe-ingredient");
-
-
-// initialiser la mise page avec JS
+// Constante du DOM appareil
+const switchOnAppareil = document.getElementById("switch-on-appareil");
+const switchOffAppareil = document.getElementById("switch-off-appareil");
+const filtreDeveloppeAppareil = document.getElementById("filtre-developpe-appareil");
+// Constante du DOM ustensile
+const switchOnUstensil = document.getElementById("switch-on-ustensil");
+const switchOffUstensil = document.getElementById("switch-off-ustensil");
+const filtreDeveloppeUstensil = document.getElementById("filtre-developpe-ustensil");
+// initialiser l'affichage des filtre
 filtreDeveloppeIngredient.style.display = "none";
-
-// afficher et masquer le filtre
+filtreDeveloppeAppareil.style.display = "none";
+filtreDeveloppeUstensil.style.display = "none";
+// Afficher et masquer le filtre ingredient
 switchOnIngredient.addEventListener("click",function(){
     switchOnIngredient.style.display = "none";
     filtreDeveloppeIngredient.style.display = "initial";
-    
-    
 });
 switchOffIngredient.addEventListener("click",function(){
     switchOnIngredient.style.display = "flex";
     filtreDeveloppeIngredient.style.display = "none";
 });
+// Afficher et masquer le filtre appareil
+switchOnAppareil.addEventListener("click",function(){
+    switchOnAppareil.style.display = "none";
+    filtreDeveloppeAppareil.style.display = "initial";
+});
+switchOffAppareil.addEventListener("click",function(){
+    switchOnAppareil.style.display = "flex";
+    filtreDeveloppeAppareil.style.display = "none";
+});
+// Afficher et masquer le filtre ustensil
+switchOnUstensil.addEventListener("click",function(){
+    switchOnUstensil.style.display = "none";
+    filtreDeveloppeUstensil.style.display = "initial";
+});
+switchOffUstensil.addEventListener("click",function(){
+    switchOnUstensil.style.display = "flex";
+    filtreDeveloppeUstensil.style.display = "none";
+})

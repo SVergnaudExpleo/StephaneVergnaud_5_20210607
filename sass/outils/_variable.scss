@@ -1,9 +1,16 @@
-// Gestion des couleurs
+// Couleurs primaires
 $background-clair: #e7e7e7;
 $background-fonce: #c8bebd;
 $couleur-ingredient: #3182f7;
 $couleur-appareil: #68d9a5;
 $couleur-ustensil: #ed6454;
 $couleur-txt-rech: #b1b1b1;
+// Couleur modifiée
+$couleur-ingredient-clair: lighten($couleur-ingredient, 10%);
+$couleur-appareil-clair: lighten($couleur-appareil, 10%);
+$couleur-ustensil-clair: lighten($couleur-ustensil, 10%);
 // Dimension
 $dim-bouton-filtre: 50px;
+// Rayon de bordure
+$rayon-filtre: 10px;
+$rayon-tag: 10px;
