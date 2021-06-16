@@ -5,3 +5,12 @@
 @mixin padding-null {
     padding: 0;
 }
+// Couleur
+@mixin couleur-placeholder-rech {
+    color: $couleur-placeholder-rech;
+    opacity: 25%;
+}
+@mixin couleur-placeholder-filtre {
+    color: $couleur-placeholder-filtre;
+    opacity: 50%;
+}

@@ -1,35 +1,79 @@
 body{
-    position: relative;
-    padding: 50px 50px 0 50px;
+    padding: 42px 100px 100px 100px;
     @include margin-null;
+    font-family: "Lato", sans-serif;
 }
 header{
     position: relative;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 17px;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    h1{
+        @include margin-null;
+        @include padding-null;
+        font-family: 'DM Sans', sans-serif;
+        color: $couleur-logo;
+        font-size: 38px;
+        font-weight: 700;
+    }
 }
 // Barres de recherche
 .recherche{
     &--globale{
-        padding: 10px;
-        margin-bottom: 20px;
+        padding: 0 16.44px 0 22px;
         display: grid;
         grid-template-columns: 1fr auto;
         background-color: $background-clair;
+        border-radius: $rayon-recherche;
     }
     &--filtre{
         display: flex;
         flex-direction: row;
     }
 }
+// mise en forme zone des filtre et tag
+.filtre-et-tag{
+    height: 171px;
+}
+// Apparence des tag
+.tag-box{
+    display: flex;
+    padding: 25px 0 15px 0;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+.tag{
+    border-radius: $rayon-tag;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    align-content: center;
+    height: 37px;
+    padding: 0 20px 0 22px;
+    margin-right: 5px;
+    &--ingredient{
+        background-color: $couleur-ingredient;
+    }
+    &--appareil{
+        background-color: $couleur-appareil;
+    }
+    &--ustensil{
+        background-color: $couleur-ustensil;
+    }
+}
 // Zone des filtres
 .filtre-box{
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: start;
     column-gap: 20px;
     color: white;
+    @include margin-null;
+    @include padding-null;
+    font-size: 18px;
     &__ingredient{
         position: relative;
         z-index: 2;
@@ -74,27 +118,8 @@ header{
         }
     }
 }
-// Apparence des tag
-.tag-box{
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    margin-bottom: 10px;
-}
-.tag{
-    border-radius: $rayon-tag;
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: start;
-    height: 30px;
-    padding: 0 5px 0 5px;
-    &--ingredient{
-        background-color: $couleur-ingredient;
-    }
-}
 // Zone contenant les cartes des recettes
 .lorem-class{
-    position: absolute;
-    z-index: 1;
-    top: 360px;
+
+
 }

@@ -1,16 +1,19 @@
-// Couleurs primaires
-$background-clair: #e7e7e7;
-$background-fonce: #c8bebd;
-$couleur-ingredient: #3182f7;
-$couleur-appareil: #68d9a5;
-$couleur-ustensil: #ed6454;
-$couleur-txt-rech: #b1b1b1;
+// Couleurs primaires#b1b1b1
+$background-clair: #E7E7E7;
+$background-fonce: #C7BEBE;
+$couleur-logo: #D04F4F;
+$couleur-ingredient: #3282F7;
+$couleur-appareil: #68D9A4;
+$couleur-ustensil: #ED6454;
+$couleur-placeholder-rech: #000000;
+$couleur-placeholder-filtre: #FFFFFF;
 // Couleur modifiée
 $couleur-ingredient-clair: lighten($couleur-ingredient, 10%);
 $couleur-appareil-clair: lighten($couleur-appareil, 10%);
 $couleur-ustensil-clair: lighten($couleur-ustensil, 10%);
 // Dimension
-$dim-bouton-filtre: 50px;
+$dim-bouton-filtre: 69px;
 // Rayon de bordure
-$rayon-filtre: 10px;
-$rayon-tag: 10px;
+$rayon-recherche: 5px;
+$rayon-filtre: 5px;
+$rayon-tag: 5px;

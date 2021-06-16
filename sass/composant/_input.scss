@@ -3,41 +3,49 @@
     background: none;
     @include padding-null;
     @include margin-null;
+    outline: none;
+    font-size: 18px;
     &--globale{
-        height: 50px;
-        font-size: 1.2em;
+        height: 69px;
+        &::placeholder{
+            font-size: 18px;
+            @include couleur-placeholder-rech;
+        }
     }
     &--ingredient{
         background-color: $couleur-ingredient;
-        height: 50px;
         width: 100%;
         padding: 0 10px 0 10px;
         color: white;
         border-top-left-radius: $rayon-filtre;
         &::placeholder{
-            color: $background-clair;
+            @include couleur-placeholder-filtre;
+            font-size: 18px;
+            font-weight: 700;
         }
     }
     &--appareil{
         background-color: $couleur-appareil;
-        height: 50px;
         width: 100%;
         padding: 0 10px 0 10px;
         color: white;
         border-top-left-radius: $rayon-filtre;
         &::placeholder{
-            color: $background-clair;
+            @include couleur-placeholder-filtre;
+            font-size: 18px;
+            font-weight: 700;
         }
     }
     &--ustensil{
         background-color: $couleur-ustensil;
-        height: 50px;
         width: 100%;
         padding: 0 10px 0 10px;
         color: white;
         border-top-left-radius: $rayon-filtre;
         &::placeholder{
-            color: $background-clair;
+            @include couleur-placeholder-filtre;
+            font-size: 18px;
+            font-weight: 700;
         }
     }
 }

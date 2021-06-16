@@ -1,8 +1,12 @@
 #header-logo{
     width: 300px;
 }
-.fa-search{
-    font-size: 50px;
+.logo-toque{
+    fill: $couleur-logo;
+}
+//loupe
+.fa-search{ 
+    font-size: 32.06px;
 }
 .fa-chevron-down{
     cursor: pointer;
@@ -16,10 +20,13 @@
     align-items: center;
     justify-items: center;
 }
-.fa-times-circle{
+//croix fermeture
+.fa-times-circle{ 
     cursor: pointer;
     display: grid;
     align-items: center;
     justify-items: center;
     color: white;
+    font-size: 20px;
+    margin-left: 13px;
 }
