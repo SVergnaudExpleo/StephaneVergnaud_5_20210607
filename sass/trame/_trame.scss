@@ -119,7 +119,66 @@ header{
     }
 }
 // Zone contenant les cartes des recettes
-.lorem-class{
-
-
+.carte-box{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
 }
+// Carte de recette
+.carte{
+    display: grid;
+    grid-template-rows: auto auto auto;
+    &-miniature{
+        height: 178px;
+        background-color: $background-fonce;
+    }
+    &-zone1{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 20px;
+        background-color: $background-clair;
+        align-items: center;
+        .carte-nom{
+            font-size: 18px;
+        }
+        .carte-duree{
+            justify-self: end;
+            display: grid;
+            grid-template-columns: auto auto;
+            align-items: center;
+        }
+        .carte-temps{
+            font-weight: 700;
+            font-size: 18px;
+        }
+    }
+    &-zone2{
+        padding: 0 20px 20px 20px;
+        display: grid;
+        grid-template-columns: auto auto;
+        background-color: $background-clair;
+        .carte-ingredient{
+            width: 171px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+        .carte-description{
+            width: 171px;
+            height: 110px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+            justify-self: end;
+            p{
+                @include margin-null;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -moz-box;
+                display: -webkit-box;
+                -webkit-line-clamp: 7;
+                -moz-box-orient: vertical;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+
