@@ -6,12 +6,14 @@
 filtreDeveloppeIngredient.style.display = "none";
 filtreDeveloppeAppareil.style.display = "none";
 filtreDeveloppeUstensil.style.display = "none";
-// Initialiser les tag
+// Initialiser l'affichage des recettes
+creerListeCarteRecette(recipes);
+// Initialiser les liste de tag
 actualiserListeTag(recipes)
 var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
 var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
 var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil]; // gérer l'actualisation des liste de tag
+var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil]; // actualiser les listes de tag
 selectrionnerTag(listeTag);
 
 //////////////////////////////////////
@@ -56,7 +58,7 @@ document.getElementById("bouton-test").addEventListener("click",function(){
     var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
     var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
     var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-    var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+    var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil]; // Actualiser les listes de tag
     selectrionnerTag(listeTag);
 });
 

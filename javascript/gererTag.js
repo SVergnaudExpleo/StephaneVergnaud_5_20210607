@@ -7,7 +7,7 @@ function recupTagIngredient(listeRecettes){
     var listeIngredientBrut = [];
     listeRecettes.forEach(function(recette){
         recette.ingredients.forEach(function(param){        
-            listeIngredientBrut.push(param.ingredient.toUpperCase());
+            listeIngredientBrut.push(param.ingredient);//.toUpperCase()
         });
     });
     return listeIngredientBrut;
@@ -16,7 +16,7 @@ function recupTagIngredient(listeRecettes){
 function recupTagAppareil(listeRecettes){
     var listeAppareilBrut = [];
     listeRecettes.forEach(function(recette){
-        listeAppareilBrut.push(recette.appliance.toUpperCase());
+        listeAppareilBrut.push(recette.appliance);//.toUpperCase()
     });
     return listeAppareilBrut;
 };
@@ -25,7 +25,7 @@ function recupTagUstensil(listeRecettes){
     var listeUstensilBrut = [];
     listeRecettes.forEach(function(recette){
         recette.ustensils.forEach(function(unUstensil){
-            listeUstensilBrut.push(unUstensil.toUpperCase())
+            listeUstensilBrut.push(unUstensil);//.toUpperCase()
         });
     });
     return listeUstensilBrut;
@@ -78,7 +78,7 @@ function fermerTag(){
         item.addEventListener('click', function(event){
             event.stopPropagation();
             item.parentElement.style.display = "none";
-        })
+        });
     });
 };
 
@@ -109,11 +109,10 @@ function actualiserListeTag(liste){
         nouvUst.textContent = ust
         listUstensil.appendChild(nouvUst);    
     });
-    return [listeTagIngredient, listeTagAppareil, listeTagUstensil];
 };
 // Ecouter la selection du tag dans la liste 
-function selectrionnerTag(param){
-    param.forEach(function(tag){
+function selectrionnerTag(uneListeDeTag){
+    uneListeDeTag.forEach(function(tag){
         tag.forEach(function(item){
             item.addEventListener("click",function(event){
                 event.stopPropagation();
