@@ -1,6 +1,6 @@
 README
 
-// aspect d'un tag html //
+// aspect d'un tag HTML //
 
 <div class="tag tag--ingredient">
     <div class="valeur-tag">tag test ingredient</div>

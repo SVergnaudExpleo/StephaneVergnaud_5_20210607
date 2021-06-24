@@ -1,25 +1,14 @@
 const rechGlobale = document.getElementById("recherche-globale");
 const carteBox = document.getElementById("carte-box");
 
-// "bouton-test"
-document.getElementById("bouton-test").addEventListener("click",function(){
-    creerCarteRecette();
-});
 
 
-// récupérer les élément du tableau
-recipes.forEach(function(recette){ //récup chaque entrée du tableau
-    console.log(recette.name);
-    
-});
 
 // fonction recherche globale
-
 // fonction créer un tableau filtrer globalement
-
 // fonction recherche par tag
-
 // fonction créer un tableau filtré globalement et par tag
+
 
 // fonction créer une carte
 function creerCarteRecette(){
@@ -60,5 +49,3 @@ function creerCarteRecette(){
                 nouvPDescription.textContent = "test test Lorem ipsum dolor sit amet, consectetur adipiscing elit.Sed non risus. test"
                 nouvDivDescription.appendChild(nouvPDescription);
 };
-
-

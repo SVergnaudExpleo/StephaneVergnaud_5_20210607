@@ -15,8 +15,11 @@ const filtreDeveloppeUstensil = document.getElementById("filtre-developpe-ustens
 const listeRechIngredient = document.getElementById("liste-recherche-ingredient");
 const listeRechIngredientChild = listeRechIngredient.innerHTML;
 const tagBox = document.getElementById("tag-box");
-const ingTagClass = document.getElementsByClassName("ing-tag");
-const listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-const listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-const listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-const listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+const listeIngredient = document.getElementById("liste-recherche-ingredient");
+const listeAppareil = document.getElementById("liste-recherche-appareil");
+const listUstensil = document.getElementById("liste-recherche-ustensil");
+
+/// reserve de var à supprimer ///
+//var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
+//var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
+//var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
