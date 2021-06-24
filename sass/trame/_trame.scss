@@ -32,10 +32,6 @@ header{
         flex-direction: row;
     }
 }
-// mise en forme zone des filtre et tag
-.filtre-et-tag{
-    height: 171px;
-}
 // Apparence des tag
 .tag-box{
     display: flex;
@@ -67,16 +63,18 @@ header{
 }
 // Zone des filtres
 .filtre-box{
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: start;
     column-gap: 20px;
     color: white;
     @include margin-null;
     @include padding-null;
     font-size: 18px;
-    &__ingredient{
+    /*&__ingredient{
         position: relative;
         z-index: 2;
     }
@@ -87,7 +85,7 @@ header{
     &__ustensil{
         position: relative;
         z-index: 2;
-    }
+    }*/
 }
 // Liste des filtres
 .liste-recherche{
@@ -125,6 +123,9 @@ header{
     display: grid;
     grid-template-columns: auto auto auto;
     gap: 50px;
+    position: relative;
+    z-index: 1;
+    padding-top: 85px;
 }
 // Carte de recette
 .carte{

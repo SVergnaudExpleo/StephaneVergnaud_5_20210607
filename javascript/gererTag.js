@@ -72,12 +72,14 @@ function creerTag(param){
     nouvDiv.appendChild(divTagValeur);
     nouvDiv.appendChild(nouvLogo);
 };
-// Fonction fermer un tag
+// Fonction supprimer un tag de tagBox
 function fermerTag(){
     actualiserListeFermerTag().forEach(function(item){
         item.addEventListener('click', function(event){
             event.stopPropagation();
-            item.parentElement.style.display = "none";
+            var maman = item.parentElement;
+            var granMaman = maman.parentElement;
+            granMaman.removeChild(maman)
         });
     });
 };
