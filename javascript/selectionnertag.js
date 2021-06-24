@@ -1,5 +1,55 @@
+///////////////////////////////////////////
+//////////// FONCTION OUTIL ///////////////
+///////////////////////////////////////////
+
+// Fonction créer une liste brute d'ingredient
+function recupTagIngredient(listeRecettes){
+    var listeIngredientBrut = [];
+    listeRecettes.forEach(function(recette){
+        recette.ingredients.forEach(function(param){        
+            listeIngredientBrut.push(param.ingredient.toUpperCase());
+        });
+    });
+    return listeIngredientBrut;
+};
+// Fonction créer une liste brute d'appareil
+function recupTagAppareil(listeRecettes){
+    var listeAppareilBrut = [];
+    listeRecettes.forEach(function(recette){
+        listeAppareilBrut.push(recette.appliance.toUpperCase());
+    });
+    return listeAppareilBrut;
+};
+// Fonction créer une liste brute d'ustensile
+function recupTagUstensil(listeRecettes){
+    var listeUstensilBrut = [];
+    listeRecettes.forEach(function(recette){
+        recette.ustensils.forEach(function(unUstensil){
+            listeUstensilBrut.push(unUstensil.toUpperCase())
+        });
+    });
+    return listeUstensilBrut;
+};
+// Fonction eliminer les doublons d'une liste brut 
+// à retravailler pour gérer les caractères accentués
+function supprimerDoublon(listeATrier){
+    var listeTraitee = [];
+    listeATrier.forEach(function(elementDeListe){    
+        var listeTraiteeLength = listeTraitee.length;
+        var compteur = 0;
+        listeTraitee.forEach(function(elementTraite){
+            if (elementDeListe != elementTraite && listeTraiteeLength > 0){
+                compteur ++;
+            };
+        });
+        if (compteur == listeTraiteeLength){
+            listeTraitee.push(elementDeListe);
+        };
+    });
+    return listeTraitee.sort();   
+};
 // Fonction actualiser la liste des boutons fermeture tag
-function actualiserListeTag(){
+function actualiserListeFermerTag(){
     return document.querySelectorAll(".far.fa-times-circle");
 };
 // Fonction créer un tag depuis une liste de tag
@@ -24,20 +74,52 @@ function creerTag(param){
 };
 // Fonction fermer un tag
 function fermerTag(){
-    actualiserListeTag().forEach(function(item){
+    actualiserListeFermerTag().forEach(function(item){
         item.addEventListener('click', function(event){
             event.stopPropagation();
             item.parentElement.style.display = "none";
         })
     });
 };
+
+//////////////////////////////////////////////
+//////////// FONCTION PRINCIPALES ////////////
+//////////////////////////////////////////////
+
+// Actualiser les listes des tag
+function actualiserListeTag(liste){
+    var listeIng = supprimerDoublon(recupTagIngredient(liste));
+    var listeApp = supprimerDoublon(recupTagAppareil(liste));
+    var listeUst = supprimerDoublon(recupTagUstensil(liste));
+    listeIngredient.innerHTML = "";
+    listeAppareil.innerHTML = "";
+    listUstensil.innerHTML = "";
+    listeIng.forEach(function(ing){
+        var nouvIng = document.createElement("div");
+        nouvIng.textContent = ing
+        listeIngredient.appendChild(nouvIng);    
+    });
+    listeApp.forEach(function(app){
+        var nouvApp = document.createElement("div");
+        nouvApp.textContent = app
+        listeAppareil.appendChild(nouvApp);    
+    });
+    listeUst.forEach(function(ust){
+        var nouvUst = document.createElement("div");
+        nouvUst.textContent = ust
+        listUstensil.appendChild(nouvUst);    
+    });
+    return [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+};
 // Ecouter la selection du tag dans la liste 
-listeTag.forEach(function(tag){
-    tag.forEach(function(item){
-        item.addEventListener("click",function(event){
-            event.stopPropagation();
-            creerTag(item);
-            fermerTag();
+function selectrionnerTag(param){
+    param.forEach(function(tag){
+        tag.forEach(function(item){
+            item.addEventListener("click",function(event){
+                event.stopPropagation();
+                creerTag(item);
+                fermerTag();
+            });
         });
     });
-});
+};

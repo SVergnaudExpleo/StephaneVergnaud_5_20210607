@@ -22,7 +22,7 @@
         </header>
         <!--Zone de recherche des recette-->
         <div class="recherche recherche--globale">
-            <input class="input-recherche input-recherche--globale" type="search" placeholder="Rechercher un ingrédient, apareil">
+            <input id="recherche-globale" class="input-recherche input-recherche--globale" type="search" placeholder="Rechercher un ingrédient, apareil">
             <button class="bouton bouton--recherche" type="button" title="rechercher">
                 <i class="fas fa-search"></i>
             </button>
@@ -100,9 +100,10 @@
                 </div>
             </div>
         </div>
+        <button id="bouton-test" class="btn-test">test de fonction</button> <!--bouton test à supprimer-->
         <!--Zone des cartes de recette-->  
-        <div class="carte-box">
-            <div id="carte-recette" class="carte">
+        <div id="carte-box" class="carte-box">
+            <!--<div class="carte">
                 <div class="carte-miniature"></div>
                 <div class="carte-zone1">
                     <div class="carte-nom">
@@ -125,10 +126,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-            <div id="carte-recette" class="carte">
+            <div class="carte">
                 <div class="carte-miniature"></div>
                 <div class="carte-zone1">
                     <div class="carte-nom">
@@ -151,7 +149,7 @@
                     </div>
                 </div>
             </div>
-            <div id="carte-recette" class="carte">
+            <div class="carte">
                 <div class="carte-miniature"></div>
                 <div class="carte-zone1">
                     <div class="carte-nom">
@@ -173,7 +171,7 @@
                     </div>
                 </div>
             </div>
-            <div id="carte-recette" class="carte">
+            <div class="carte">
                 <div class="carte-miniature"></div>
                 <div class="carte-zone1">
                     <div class="carte-nom">
@@ -195,6 +193,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
         <!--Appel des script-->
         <script src="./javascript/variable.js"></script>
@@ -204,5 +203,7 @@
         
         <!--fonction JS en developpement--> 
         <script src="./javascript/dev.js"></script>
+
+        <script src="./javascript/sequenceexecute.js"></script>
     </body>
 </html>
