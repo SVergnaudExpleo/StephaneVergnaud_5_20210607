@@ -160,12 +160,13 @@ header{
         grid-template-columns: auto auto;
         background-color: $background-clair;
         .carte-ingredient{
-            width: 171px;
+            min-width: 171px;
             font-weight: 700;
             font-size: 12px;
+            margin-right: 10px;
         }
         .carte-description{
-            width: 171px;
+            min-width: 171px;
             height: 110px;
             font-family: 'Roboto', sans-serif;
             font-size: 12px;
