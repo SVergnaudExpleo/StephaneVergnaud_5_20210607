@@ -133,10 +133,9 @@ function fermerTag(actuaListe){
 
 
 // Ecouter la selection du tag dans la liste => injecter la table à trier
-function selectionnerTag(uneListeDeTag,listeRecetteATrier){
+function selectionnerTag(uneListeDeTag,listeRecetteATrier, comptage = 0){
     var listeRecetteSortie = [];
     var listeTagSortie = [];
-    var compte = 0;
     var injectionListe = [];
     var injectionTag = [];
     if (listeRecetteSortie.length > 0){
@@ -161,7 +160,7 @@ function selectionnerTag(uneListeDeTag,listeRecetteATrier){
                 var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
                 listeRecetteSortie = filtreParTag;
                 listeTagSortie = listeTag;
-                selectionnerTag(listeTagSortie,listeRecetteSortie)
+                selectionnerTag(listeTagSortie,listeRecetteSortie);
             });
         });
     });

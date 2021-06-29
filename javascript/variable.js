@@ -22,9 +22,5 @@ const rechGlobale = document.getElementById("recherche-globale");
 // Constante DOM carte recette
 const carteBox = document.getElementById("carte-box");
 
-
-
-/// reserve de var à supprimer ///
-//var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-//var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-//var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
+// Tableau de recettes trié par tag
+var tableauRecetteTrierParTag = [];

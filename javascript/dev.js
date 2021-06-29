@@ -84,19 +84,11 @@ function rechercheParTag(listeATrier){
     });
     //trier les doublons//
     if (recetteParTagBrut.length > 0){
-        recetteParTagBrut.forEach(function(recetteBrut){
-            var i = 0;
-            if (recetteParTagBrut.length == 1){
-                recetteParTag.push(recetteBrut)
-            }else if (recetteParTagBrut.length > 1){
-                while (i<recetteParTagBrut.length){
-                    if (recetteBrut[i].id !== recetteBrut[i+1].id){
-                        recetteParTag.push(recetteBrut);
-                    };
-                    i++;
-                };
-            };
-        });
+        
+        recetteParTag = supprimerDoublon(recetteParTagBrut);
+        
+        //recetteParTag = recetteParTagBrut;  // pour test
+
     }else{
         recetteParTag = recetteParTagBrut;
     };
@@ -111,7 +103,7 @@ function rechercheParTag(listeATrier){
 
 
 
-
+/*
 //choisir le tableau à trier
 function choixTableTriTag(){
     if (rechGlobale.textContent.length >= 3){
@@ -120,4 +112,4 @@ function choixTableTriTag(){
         return "recipes"; // mettre le tableau retourner de recherche globale
     };
 };
-
+*/
