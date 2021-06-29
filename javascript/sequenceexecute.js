@@ -14,7 +14,7 @@ var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient 
 var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
 var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
 var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil]; // actualiser les listes de tag
-selectrionnerTag(listeTag);
+selectionnerTag(listeTag , recipes);
 
 //////////////////////////////////////
 /////// PHASE AFFICHER FILTRE ////////
@@ -53,13 +53,8 @@ switchOffUstensil.addEventListener("click",function(){
 /////////////////////////////////
 
 // "bouton-test" simulation de recherche
-document.getElementById("bouton-test").addEventListener("click",function(){
-    actualiserListeTag(recipes)
-    var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-    var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-    var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-    var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil]; // Actualiser les listes de tag
-    selectrionnerTag(listeTag);
+document.getElementById("bouton-recherche").addEventListener("click",function(){
 });
 
-
+document.getElementById("bouton-test").addEventListener("click",function(){
+});

@@ -79,6 +79,10 @@ function creerCarteRecette(traiterUneRecette){
 
 // Fonction afficher les cartes de recettes
 function creerListeCarteRecette(tableRecette){
+    var carteListe = document.querySelectorAll(".carte");
+    carteListe.forEach(function(carte){
+        carte.remove();
+    });
     tableRecette.forEach(function(recette){
         creerCarteRecette(recette);
     });
