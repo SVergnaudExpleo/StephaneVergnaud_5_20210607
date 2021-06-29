@@ -13,16 +13,14 @@ const filtreDeveloppeUstensil = document.getElementById("filtre-developpe-ustens
 // Constante du DOM selectionner un tag
 const listeRechIngredient = document.getElementById("liste-recherche-ingredient");
 const listeRechIngredientChild = listeRechIngredient.innerHTML;
-const tagBox = document.getElementById("tag-box");
+var tagBox = document.getElementById("tag-box");
 const listeIngredient = document.getElementById("liste-recherche-ingredient");
 const listeAppareil = document.getElementById("liste-recherche-appareil");
 const listUstensil = document.getElementById("liste-recherche-ustensil");
+// Constante DOM recherche globale
+const rechGlobale = document.getElementById("recherche-globale");
 // Constante DOM carte recette
 const carteBox = document.getElementById("carte-box");
 
-
-
-/// reserve de var à supprimer ///
-//var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-//var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-//var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
+// Tableau de recettes trié par tag
+var tableauRecetteTrierParTag = [];

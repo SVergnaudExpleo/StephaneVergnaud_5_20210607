@@ -48,10 +48,6 @@ function supprimerDoublon(listeATrier){
     });
     return listeTraitee.sort();   
 };
-// Fonction actualiser la liste des boutons fermeture tag
-function actualiserListeFermerTag(){
-    return document.querySelectorAll(".far.fa-times-circle");
-};
 // Fonction créer un tag depuis une liste de tag
 function creerTag(param){
     const nouvDiv = document.createElement("div");
@@ -72,21 +68,7 @@ function creerTag(param){
     nouvDiv.appendChild(divTagValeur);
     nouvDiv.appendChild(nouvLogo);
 };
-// Fonction fermer un tag
-function fermerTag(){
-    actualiserListeFermerTag().forEach(function(item){
-        item.addEventListener('click', function(event){
-            event.stopPropagation();
-            item.parentElement.style.display = "none";
-        });
-    });
-};
-
-//////////////////////////////////////////////
-//////////// FONCTION PRINCIPALES ////////////
-//////////////////////////////////////////////
-
-// Actualiser les listes des tag
+// Actualiser l'affichage dans les filtres des listes de tag 
 function actualiserListeTag(liste){
     var listeIng = supprimerDoublon(recupTagIngredient(liste));
     var listeApp = supprimerDoublon(recupTagAppareil(liste));
@@ -96,28 +78,89 @@ function actualiserListeTag(liste){
     listUstensil.innerHTML = "";
     listeIng.forEach(function(ing){
         var nouvIng = document.createElement("div");
-        nouvIng.textContent = ing
+        nouvIng.textContent = ing;
         listeIngredient.appendChild(nouvIng);    
     });
     listeApp.forEach(function(app){
         var nouvApp = document.createElement("div");
-        nouvApp.textContent = app
+        nouvApp.textContent = app;
         listeAppareil.appendChild(nouvApp);    
     });
     listeUst.forEach(function(ust){
         var nouvUst = document.createElement("div");
-        nouvUst.textContent = ust
+        nouvUst.textContent = ust;
         listUstensil.appendChild(nouvUst);    
     });
 };
-// Ecouter la selection du tag dans la liste 
-function selectrionnerTag(uneListeDeTag){
-    uneListeDeTag.forEach(function(tag){
+// Fonction supprimer un tag de tagBox
+function fermerTag(actuaListe){
+    var unTagOuvert = document.querySelectorAll(".far.fa-times-circle");
+    if (unTagOuvert != undefined) {
+        unTagOuvert.forEach(function(item){
+            item.addEventListener('click', function(event){
+                event.stopPropagation();
+                var maman = item.parentElement;
+                var granMaman = maman.parentElement;
+                if (granMaman != null){
+                    granMaman.removeChild(maman);
+                    var filtreParTag = rechercheParTag(actuaListe); // injecter la table à trier
+                    if (filtreParTag.length > 0){
+                        creerListeCarteRecette(filtreParTag);
+                        actualiserListeTag(filtreParTag);
+                        var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
+                        var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
+                        var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
+                        var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+                        selectionnerTag(listeTag,filtreParTag);
+                    }else if (filtreParTag.length <= 0){
+                        creerListeCarteRecette(recipes);
+                        actualiserListeTag(recipes);
+                        var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
+                        var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
+                        var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
+                        var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+                        selectionnerTag(listeTag,recipes);
+                    };
+                };
+            });
+        });
+    };
+};
+
+//////////////////////////////////////////////
+//////////// FONCTION PRINCIPALES ////////////
+//////////////////////////////////////////////
+
+
+// Ecouter la selection du tag dans la liste => injecter la table à trier
+function selectionnerTag(uneListeDeTag,listeRecetteATrier, comptage = 0){
+    var listeRecetteSortie = [];
+    var listeTagSortie = [];
+    var injectionListe = [];
+    var injectionTag = [];
+    if (listeRecetteSortie.length > 0){
+        injectionListe = listeRecetteSortie;
+        injectionTag = listeTagSortie;
+    }else{
+        injectionListe = listeRecetteATrier;
+        injectionTag = uneListeDeTag;
+    };
+    injectionTag.forEach(function(tag){
         tag.forEach(function(item){
             item.addEventListener("click",function(event){
                 event.stopPropagation();
                 creerTag(item);
-                fermerTag();
+                var filtreParTag = rechercheParTag(injectionListe);
+                fermerTag(filtreParTag);
+                creerListeCarteRecette(filtreParTag);
+                actualiserListeTag(filtreParTag);
+                var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
+                var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
+                var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
+                var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+                listeRecetteSortie = filtreParTag;
+                listeTagSortie = listeTag;
+                selectionnerTag(listeTagSortie,listeRecetteSortie);
             });
         });
     });

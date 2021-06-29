@@ -20,70 +20,66 @@
             </svg>
             <h1>Les petits plats</h1>
         </header>
+        <button id="bouton-test" class="btn-test">test de fonction</button> <!--bouton test à supprimer-->
         <!--Zone de recherche des recette-->
         <div class="recherche recherche--globale">
             <input id="recherche-globale" class="input-recherche input-recherche--globale" type="search" placeholder="Rechercher un ingrédient, apareil">
             <button class="bouton bouton--recherche" type="button" title="rechercher">
-                <i class="fas fa-search"></i>
+                <i id="bouton-recherche" class="fas fa-search"></i>
             </button>
         </div>
-        <div class="filtre-et-tag">
-            <!-- Zone d'affichage des tags sélectionnés-->
-            <div id="tag-box" class="tag-box" >
+        <!-- Zone d'affichage des tags sélectionnés-->
+        <div id="tag-box" class="tag-box" ></div>
+        <!-- Zone des filtres-->
+        <div class="filtre-box">
+            <!-- Filtre des ingrédients-->
+            <div class="filtre-box__ingredient">
+                <button id="switch-on-ingredient" class="bouton bouton--on bouton--on-ingredient">
+                    Ingrédient <div class="spacer--20"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="filtre-developpe-ingredient" class="filtre-developpe filtre-developpe--ingredient">
+                    <div class="recherche recherche--filtre">
+                        <input class="input-recherche input-recherche--ingredient" type="search" placeholder="Recherche un ingrédient">
+                        <i id="switch-off-ingredient" class="bouton bouton--off bouton--off-ingredient fas fa-chevron-up"></i>
+                    </div>
+                    <div id="liste-recherche-ingredient" class="liste-recherche liste-recherche--ingredient">
+                    </div>
+                </div>
             </div>
-            <!-- Zone des filtres-->
-            <div class="filtre-box">
-                <!-- Filtre des ingrédients-->
-                <div class="filtre-box__ingredient">
-                    <button id="switch-on-ingredient" class="bouton bouton--on bouton--on-ingredient">
-                        Ingrédient <div class="spacer--20"></div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div id="filtre-developpe-ingredient" class="filtre-developpe filtre-developpe--ingredient">
-                        <div class="recherche recherche--filtre">
-                            <input class="input-recherche input-recherche--ingredient" type="search" placeholder="Recherche un ingrédient">
-                            <i id="switch-off-ingredient" class="bouton bouton--off bouton--off-ingredient fas fa-chevron-up"></i>
-                        </div>
-                        <div id="liste-recherche-ingredient" class="liste-recherche liste-recherche--ingredient">
-                        </div>
+            <!-- Filtre appareil-->
+            <div class="filtre-box__appareil">
+                <button id="switch-on-appareil" class="bouton bouton--on bouton--on-appareil">
+                    Appareil <div class="spacer--20"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="filtre-developpe-appareil" class="filtre-developpe filtre-developpe--appareil">
+                    <div class="recherche recherche--filtre">
+                        <input class="input-recherche input-recherche--appareil" type="search" placeholder="Recherche un appareil">
+                        <i id="switch-off-appareil" class="bouton bouton--off bouton--off-appareil fas fa-chevron-up"></i>
+                    </div>
+                    <div id="liste-recherche-appareil" class="liste-recherche liste-recherche--appareil">
                     </div>
                 </div>
-                <!-- Filtre appareil-->
-                <div class="filtre-box__appareil">
-                    <button id="switch-on-appareil" class="bouton bouton--on bouton--on-appareil">
-                        Appareil <div class="spacer--20"></div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div id="filtre-developpe-appareil" class="filtre-developpe filtre-developpe--appareil">
-                        <div class="recherche recherche--filtre">
-                            <input class="input-recherche input-recherche--appareil" type="search" placeholder="Recherche un appareil">
-                            <i id="switch-off-appareil" class="bouton bouton--off bouton--off-appareil fas fa-chevron-up"></i>
-                        </div>
-                        <div id="liste-recherche-appareil" class="liste-recherche liste-recherche--appareil">
-                        </div>
+            </div>
+            <!-- Filtre ustensile-->
+            <div class="filtre-box__ustensil">
+                <button id="switch-on-ustensil" class="bouton bouton--on bouton--on-ustensil">
+                    Ustensiles <div class="spacer--20"></div>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div id="filtre-developpe-ustensil" class="filtre-developpe filtre-developpe--ustensil">
+                    <div class="recherche recherche--filtre">
+                        <input class="input-recherche input-recherche--ustensil" type="search" placeholder="Recherche un ustensile">
+                        <i id="switch-off-ustensil" class="bouton bouton--off bouton--off-ustensil fas fa-chevron-up"></i>
                     </div>
-                </div>
-                <!-- Filtre ustensile-->
-                <div class="filtre-box__ustensil">
-                    <button id="switch-on-ustensil" class="bouton bouton--on bouton--on-ustensil">
-                        Ustensiles <div class="spacer--20"></div>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div id="filtre-developpe-ustensil" class="filtre-developpe filtre-developpe--ustensil">
-                        <div class="recherche recherche--filtre">
-                            <input class="input-recherche input-recherche--ustensil" type="search" placeholder="Recherche un ustensile">
-                            <i id="switch-off-ustensil" class="bouton bouton--off bouton--off-ustensil fas fa-chevron-up"></i>
-                        </div>
-                        <div id="liste-recherche-ustensil" class="liste-recherche liste-recherche--ustensil">
-                        </div>
+                    <div id="liste-recherche-ustensil" class="liste-recherche liste-recherche--ustensil">
                     </div>
                 </div>
             </div>
         </div>
-        <button id="bouton-test" class="btn-test">test de fonction</button> <!--bouton test à supprimer-->
         <!--Zone des cartes de recette-->  
-        <div id="carte-box" class="carte-box">
-        </div>
+        <div id="carte-box" class="carte-box"></div>
         <!--Appel des script-->
         <script src="./javascript/variable.js"></script>
         <script src="./javascript/recipes.js"></script>
