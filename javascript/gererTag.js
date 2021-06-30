@@ -1,6 +1,45 @@
-///////////////////////////////////////////
-//////////// FONCTION OUTIL ///////////////
-///////////////////////////////////////////
+/*     FONCTION AFFICHER LES FILTRES
+-------------------------------------------------*/
+
+// Afficher et masquer le filtre ingredient
+function afficherFiltreIngredient(){
+    filtreDeveloppeIngredient.style.display = "none";
+    switchOnIngredient.addEventListener("click",function(){
+        switchOnIngredient.style.display = "none";
+        filtreDeveloppeIngredient.style.display = "initial";
+    });
+    switchOffIngredient.addEventListener("click",function(){
+        switchOnIngredient.style.display = "flex";
+        filtreDeveloppeIngredient.style.display = "none";
+    });
+};
+// Afficher et masquer le filtre appareil
+function afficherFiltreAppareil(){
+    filtreDeveloppeAppareil.style.display = "none";
+    switchOnAppareil.addEventListener("click",function(){
+        switchOnAppareil.style.display = "none";
+        filtreDeveloppeAppareil.style.display = "initial";
+    });
+    switchOffAppareil.addEventListener("click",function(){
+        switchOnAppareil.style.display = "flex";
+        filtreDeveloppeAppareil.style.display = "none";
+    });
+};
+// Afficher et masquer le filtre ustensil
+function afficherFiltreUstensil(){
+    filtreDeveloppeUstensil.style.display = "none";
+    switchOnUstensil.addEventListener("click",function(){
+        switchOnUstensil.style.display = "none";
+        filtreDeveloppeUstensil.style.display = "initial";
+    });
+    switchOffUstensil.addEventListener("click",function(){
+        switchOnUstensil.style.display = "flex";
+        filtreDeveloppeUstensil.style.display = "none";
+    });
+};
+
+/*     FONCTION ACTUALISER LES LISTES DE TAG       
+-------------------------------------------------*/
 
 // Fonction créer une liste brute d'ingredient
 function recupTagIngredient(listeRecettes){
@@ -48,26 +87,6 @@ function supprimerDoublon(listeATrier){
     });
     return listeTraitee.sort();   
 };
-// Fonction créer un tag depuis une liste de tag
-function creerTag(param){
-    const nouvDiv = document.createElement("div");
-    const divTagValeur = document.createElement("div");
-    const nouvLogo = document.createElement("i");
-    const idParam = param.parentElement.id;
-    if (idParam == "liste-recherche-ingredient"){
-        nouvDiv.className = "tag tag--ingredient";
-    }else if (idParam == "liste-recherche-appareil"){
-        nouvDiv.className = "tag tag--appareil";
-    }else if (idParam == "liste-recherche-ustensil"){
-        nouvDiv.className = "tag tag--ustensil";
-    };
-    divTagValeur.className = "valeur-tag";
-    divTagValeur.textContent = param.textContent;
-    nouvLogo.className = "far fa-times-circle";
-    tagBox.appendChild(nouvDiv);
-    nouvDiv.appendChild(divTagValeur);
-    nouvDiv.appendChild(nouvLogo);
-};
 // Actualiser l'affichage dans les filtres des listes de tag 
 function actualiserListeTag(liste){
     var listeIng = supprimerDoublon(recupTagIngredient(liste));
@@ -91,6 +110,30 @@ function actualiserListeTag(liste){
         nouvUst.textContent = ust;
         listUstensil.appendChild(nouvUst);    
     });
+};
+
+/* FONCTION SELECTIONNER ET SUPPRIMER UN TAG
+-------------------------------------------------*/
+
+// Fonction générer l'affichage HTML d'un tag  depuis une liste de tag
+function creerTag(param){
+    const nouvDiv = document.createElement("div");
+    const divTagValeur = document.createElement("div");
+    const nouvLogo = document.createElement("i");
+    const idParam = param.parentElement.id;
+    if (idParam == "liste-recherche-ingredient"){
+        nouvDiv.className = "tag tag--ingredient";
+    }else if (idParam == "liste-recherche-appareil"){
+        nouvDiv.className = "tag tag--appareil";
+    }else if (idParam == "liste-recherche-ustensil"){
+        nouvDiv.className = "tag tag--ustensil";
+    };
+    divTagValeur.className = "valeur-tag";
+    divTagValeur.textContent = param.textContent;
+    nouvLogo.className = "far fa-times-circle";
+    tagBox.appendChild(nouvDiv);
+    nouvDiv.appendChild(divTagValeur);
+    nouvDiv.appendChild(nouvLogo);
 };
 // Fonction supprimer un tag de tagBox
 function fermerTag(actuaListe){
@@ -127,10 +170,89 @@ function fermerTag(actuaListe){
     };
 };
 
-//////////////////////////////////////////////
-//////////// FONCTION PRINCIPALES ////////////
-//////////////////////////////////////////////
+/*     FONCTION RECHERCHER PAR TAG
+-------------------------------------------------*/
 
+// Fonction générer des tableaux pour la recherche par tag
+function creerTableTagIngredient(){
+    var listeTagBox = tagBox.querySelectorAll(".tag");
+    var tableIng = [];
+    listeTagBox.forEach(function(tagAClasser){
+        if (tagAClasser.className == "tag tag--ingredient"){
+            var tagValeur = tagAClasser.querySelector(".valeur-tag").innerText;
+            tableIng.push(tagValeur);
+        };
+    });
+    return tableIng;
+};
+function creerTableTagAppareil(){
+    var listeTagBox = tagBox.querySelectorAll(".tag");
+    var tableApp = [];
+    listeTagBox.forEach(function(tagAClasser){
+        if (tagAClasser.className == "tag tag--appareil"){
+            var tagValeur = tagAClasser.querySelector(".valeur-tag").innerText;
+            tableApp.push(tagValeur);
+        };
+    });
+    return tableApp;
+};
+function creerTableTagUstensil(){
+    var listeTagBox = tagBox.querySelectorAll(".tag");
+    var tableUst = [];
+    listeTagBox.forEach(function(tagAClasser){
+        if (tagAClasser.className == "tag tag--ustensil"){
+            var tagValeur = tagAClasser.querySelector(".valeur-tag").innerText;
+            tableUst.push(tagValeur);
+        };
+    });
+    return tableUst;
+};
+// Fonction recherche par tag => retourne un tableau
+function rechercheParTag(listeATrier){
+    var tableTagIngredient = creerTableTagIngredient();
+    var tableTagAppareil = creerTableTagAppareil();
+    var tableTagUstensil = creerTableTagUstensil();
+    var recetteParTagBrut = [];
+    var recetteParTag = [];
+    listeATrier.forEach(function(uneRecette){
+        if (tableTagIngredient.length > 0){
+            uneRecette.ingredients.forEach(function(unIngredient){
+                var ing = unIngredient.ingredient;
+                tableTagIngredient.forEach(function(tag) {
+                    if (ing == tag) {
+                        recetteParTagBrut.push(uneRecette);
+                    };
+                });
+            });
+        };
+        if (tableTagAppareil.length > 0){
+            tableTagAppareil.forEach(function(tag){
+                if (uneRecette.appliance == tag){
+                    recetteParTagBrut.push(uneRecette);
+                };
+            });
+        };
+        if (tableTagUstensil.length > 0){
+            uneRecette.ustensils.forEach(function(unUstensil){
+                tableTagUstensil.forEach(function(tag){
+                    if (unUstensil == tag){
+                        recetteParTagBrut.push(uneRecette);
+                    };
+                });
+            });
+        };
+    });
+    //trier les doublons//
+    if (recetteParTagBrut.length > 0){
+        recetteParTag = supprimerDoublon(recetteParTagBrut);
+    }else{
+        recetteParTag = recetteParTagBrut;
+    };
+    return recetteParTag;
+};
+
+/*     FONCTION PRINCIPALES : SELECTIONNER UN TAG DANS LA LISTE
+--------------------------------------------------------------------*/
 
 // Ecouter la selection du tag dans la liste => injecter la table à trier
 function selectionnerTag(uneListeDeTag,listeRecetteATrier, comptage = 0){
