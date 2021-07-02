@@ -22,5 +22,3 @@ const rechGlobale = document.getElementById("recherche-globale");
 // Constante DOM carte recette
 const carteBox = document.getElementById("carte-box");
 
-// Tableau de recettes trié par tag
-var tableauRecetteTrierParTag = [];
