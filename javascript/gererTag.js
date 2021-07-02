@@ -67,6 +67,8 @@ function recupTagUstensil(listeRecettes){
             listeUstensilBrut.push(unUstensil);//.toUpperCase()
         });
     });
+    //console.log("liste brut",listeUstensilBrut.sort());
+    //console.log("liste sans doublon",supprimerDoublon(listeUstensilBrut));
     return listeUstensilBrut;
 };
 // Fonction eliminer les doublons d'une liste brut 
@@ -143,33 +145,40 @@ function creerTag(param){
     nouvDiv.appendChild(nouvLogo);
 };
 // Fonction supprimer un tag de tagBox
-function fermerTag(){
+function fermerTagV2(){
     var unTagOuvert = document.querySelectorAll(".far.fa-times-circle");
-    if (unTagOuvert != undefined) {
+    if (unTagOuvert.length > 0){
         unTagOuvert.forEach(function(item){
             item.addEventListener('click', function(event){
                 event.stopPropagation();
-                var maman = item.parentElement;
-                var granMaman = maman.parentElement;
+                var parent = item.parentElement;
                 suppressionEnCours = 1;
-                if (granMaman != null){
-                    granMaman.removeChild(maman);
-                    var filtreParTag = rechercheParTagV2(); // 
-                    if (filtreParTag.length > 0 && rechGlobale.value.length >= 3){
-                        creerListeCarteRecette(filtreParTag);
-                        actualiserListeTag(filtreParTag);
-                        tableauTagClicable = listeTagClicable();
-                        selectionnerTag();
-                    }else if (filtreParTag.length <= 0 && rechGlobale.value.length < 3){
-                        creerListeCarteRecette(recipes);
-                        actualiserListeTag(recipes);
-                        tableauTagClicable = listeTagClicable();
-                        selectionnerTag();
-                    };
-                };
+                parent.remove();
+                // si pas de tag selectionné et pas de recherche
+                if (document.querySelectorAll(".far.fa-times-circle").length == 0 && rechGlobale.value.length < 3){
+                    tableauRecetteRechercheGlobale = [];
+                    tableauRecetteFiltreeTag = [];
+                    creerListeCarteRecette(recipes);
+                    actualiserListeTag(recipes);
+                    tableauTagClicable = listeTagClicable();
+                    selectionnerTag();
+                }else if (document.querySelectorAll(".far.fa-times-circle").length == 0 && rechGlobale.value.length >= 3){
+                    tableauRecetteFiltreeTag = [];
+                    creerListeCarteRecette(tableauRecetteRechercheGlobale);
+                    actualiserListeTag(tableauRecetteRechercheGlobale);
+                    tableauTagClicable = listeTagClicable();
+                    selectionnerTag();
+                }else if (document.querySelectorAll(".far.fa-times-circle").length > 0){
+                    rechercheParTagV2();
+                    creerListeCarteRecette(tableauRecetteFiltreeTag);
+                    actualiserListeTag(tableauRecetteFiltreeTag);
+                    tableauTagClicable = listeTagClicable();
+                    selectionnerTag();
+                }; 
                 suppressionEnCours = 0;
+                fermerTagV2();
             });
-        });
+        });  
     };
 };
 
@@ -182,15 +191,24 @@ function rechercheParTagV2(){
     var recetteParTag = [];
     var lesRecettesATrier = [];
     var listeTagBox = tagBox.querySelectorAll(".tag");
-    if (tableauRecetteRechercheGlobale.length > 0 && tableauRecetteFiltreeTag.length == 0 && suppressionEnCours == 0){
-        //rechGlobale.value.length >= 3
-        lesRecettesATrier = tableauRecetteRechercheGlobale;
-    }else if (tableauRecetteFiltreeTag.length > 0 && suppressionEnCours == 0){
-        lesRecettesATrier = tableauRecetteFiltreeTag;
-    }else if (tableauRecetteFiltreeTag.length > 0 && suppressionEnCours == 1 && tableauRecetteRechercheGlobale.length > 0){
-        lesRecettesATrier = tableauRecetteRechercheGlobale;        
-    }else{
+    // si pas de recherche par tag effectué et recherche globale effectué => utiliser table de recherche globale
+    if (tableauRecetteFiltreeTag.length == 0 && rechGlobale.value.length >= 3 && suppressionEnCours == 0){
+        lesRecettesATrier = tableauRecetteRechercheGlobale; 
+    // Si une recherche par tag a été effectuée et recherche globale effectué => utiliser table de recherche par tag
+    }else if (tableauRecetteFiltreeTag.length > 0 && rechGlobale.value.length >= 3 && suppressionEnCours == 0){
+        lesRecettesATrier = tableauRecetteFiltreeTag; 
+    // si un tag est selectionné et pas de recherche en cours => utiliser table de recette generale
+    }else if (tableauRecetteFiltreeTag.length == 0 && rechGlobale.value.length < 3 && suppressionEnCours == 0){
         lesRecettesATrier = recipes;
+    }else if (tableauRecetteFiltreeTag.length > 0 && rechGlobale.value.length < 3 && suppressionEnCours == 0){
+        lesRecettesATrier = tableauRecetteFiltreeTag;
+    // Si un tag est selectionné et une recherche en cours et une suppression en cours => utiliser table de recherche globale
+    }else if (rechGlobale.value.length >= 3 && suppressionEnCours == 1){
+        lesRecettesATrier = tableauRecetteRechercheGlobale;        
+    }else if (rechGlobale.value.length < 3 && suppressionEnCours == 1){
+        lesRecettesATrier = recipes;        
+    //}else{
+    //    lesRecettesATrier = recipes;
     };
     listeTagBox.forEach(function(unTag){
         recetteParTagBrut = [];
@@ -223,6 +241,7 @@ function rechercheParTagV2(){
         tableauRecetteFiltreeTag = recetteParTag;
     });
     tableauRecetteFiltreeTag = recetteParTag;
+    console.log("Recette à triée sortie du filtre par tag", tableauRecetteFiltreeTag);
     return tableauRecetteFiltreeTag;
 };
 
@@ -237,11 +256,11 @@ function selectionnerTag(){
             item.addEventListener("click",function(event){
                 event.stopPropagation();
                 creerTag(item);
-                var filtreParTag = rechercheParTagV2();
-                fermerTag();
-                creerListeCarteRecette(filtreParTag);
-                actualiserListeTag(filtreParTag);
-                //tableauRecetteATrier = filtreParTag
+                //var filtreParTag = rechercheParTagV2();
+                rechercheParTagV2();
+                fermerTagV2();
+                creerListeCarteRecette(tableauRecetteFiltreeTag);
+                actualiserListeTag(tableauRecetteFiltreeTag);
                 selectionnerTag();
             });
         });

@@ -1,8 +1,6 @@
 /*     PHASE INITIALISATION
 -------------------------------------------------*/
 
-// Initialiser un tableau de stockage des recettes à trier
-//var tableauRecetteATrier = recipes;
 // initialiser un tableau de recette filtré par recherche
 var tableauRecetteRechercheGlobale = [];
 // Initialiser un tableau de recette filtré par tag
