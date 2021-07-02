@@ -70,7 +70,6 @@ function recupTagUstensil(listeRecettes){
     return listeUstensilBrut;
 };
 // Fonction eliminer les doublons d'une liste brut 
-// à retravailler pour gérer les caractères accentués
 function supprimerDoublon(listeATrier){
     var listeTraitee = [];
     listeATrier.forEach(function(elementDeListe){    
@@ -111,6 +110,14 @@ function actualiserListeTag(liste){
         listUstensil.appendChild(nouvUst);    
     });
 };
+// Fonction actualiser la liste des tag clicable
+function listeTagClicable(){
+    var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
+    var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
+    var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
+    var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
+    return listeTag
+};
 
 /* FONCTION SELECTIONNER ET SUPPRIMER UN TAG
 -------------------------------------------------*/
@@ -136,7 +143,7 @@ function creerTag(param){
     nouvDiv.appendChild(nouvLogo);
 };
 // Fonction supprimer un tag de tagBox
-function fermerTag(actuaListe){
+function fermerTag(){
     var unTagOuvert = document.querySelectorAll(".far.fa-times-circle");
     if (unTagOuvert != undefined) {
         unTagOuvert.forEach(function(item){
@@ -144,27 +151,23 @@ function fermerTag(actuaListe){
                 event.stopPropagation();
                 var maman = item.parentElement;
                 var granMaman = maman.parentElement;
+                suppressionEnCours = 1;
                 if (granMaman != null){
                     granMaman.removeChild(maman);
-                    var filtreParTag = rechercheParTag(actuaListe); // injecter la table à trier
-                    if (filtreParTag.length > 0){
+                    var filtreParTag = rechercheParTagV2(); // 
+                    if (filtreParTag.length > 0 && rechGlobale.value.length >= 3){
                         creerListeCarteRecette(filtreParTag);
                         actualiserListeTag(filtreParTag);
-                        var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-                        var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-                        var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-                        var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
-                        selectionnerTag(listeTag,filtreParTag);
-                    }else if (filtreParTag.length <= 0){
+                        tableauTagClicable = listeTagClicable();
+                        selectionnerTag();
+                    }else if (filtreParTag.length <= 0 && rechGlobale.value.length < 3){
                         creerListeCarteRecette(recipes);
                         actualiserListeTag(recipes);
-                        var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-                        var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-                        var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-                        var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
-                        selectionnerTag(listeTag,recipes);
+                        tableauTagClicable = listeTagClicable();
+                        selectionnerTag();
                     };
                 };
+                suppressionEnCours = 0;
             });
         });
     };
@@ -173,116 +176,73 @@ function fermerTag(actuaListe){
 /*     FONCTION RECHERCHER PAR TAG
 -------------------------------------------------*/
 
-// Fonction générer des tableaux pour la recherche par tag
-function creerTableTagIngredient(){
-    var listeTagBox = tagBox.querySelectorAll(".tag");
-    var tableIng = [];
-    listeTagBox.forEach(function(tagAClasser){
-        if (tagAClasser.className == "tag tag--ingredient"){
-            var tagValeur = tagAClasser.querySelector(".valeur-tag").innerText;
-            tableIng.push(tagValeur);
-        };
-    });
-    return tableIng;
-};
-function creerTableTagAppareil(){
-    var listeTagBox = tagBox.querySelectorAll(".tag");
-    var tableApp = [];
-    listeTagBox.forEach(function(tagAClasser){
-        if (tagAClasser.className == "tag tag--appareil"){
-            var tagValeur = tagAClasser.querySelector(".valeur-tag").innerText;
-            tableApp.push(tagValeur);
-        };
-    });
-    return tableApp;
-};
-function creerTableTagUstensil(){
-    var listeTagBox = tagBox.querySelectorAll(".tag");
-    var tableUst = [];
-    listeTagBox.forEach(function(tagAClasser){
-        if (tagAClasser.className == "tag tag--ustensil"){
-            var tagValeur = tagAClasser.querySelector(".valeur-tag").innerText;
-            tableUst.push(tagValeur);
-        };
-    });
-    return tableUst;
-};
-// Fonction recherche par tag => retourne un tableau
-function rechercheParTag(listeATrier){
-    var tableTagIngredient = creerTableTagIngredient();
-    var tableTagAppareil = creerTableTagAppareil();
-    var tableTagUstensil = creerTableTagUstensil();
+// Fonction rechercher par le dernier tag entré
+function rechercheParTagV2(){
     var recetteParTagBrut = [];
     var recetteParTag = [];
-    listeATrier.forEach(function(uneRecette){
-        if (tableTagIngredient.length > 0){
-            uneRecette.ingredients.forEach(function(unIngredient){
-                var ing = unIngredient.ingredient;
-                tableTagIngredient.forEach(function(tag) {
-                    if (ing == tag) {
+    var lesRecettesATrier = [];
+    var listeTagBox = tagBox.querySelectorAll(".tag");
+    if (tableauRecetteRechercheGlobale.length > 0 && tableauRecetteFiltreeTag.length == 0 && suppressionEnCours == 0){
+        //rechGlobale.value.length >= 3
+        lesRecettesATrier = tableauRecetteRechercheGlobale;
+    }else if (tableauRecetteFiltreeTag.length > 0 && suppressionEnCours == 0){
+        lesRecettesATrier = tableauRecetteFiltreeTag;
+    }else if (tableauRecetteFiltreeTag.length > 0 && suppressionEnCours == 1 && tableauRecetteRechercheGlobale.length > 0){
+        lesRecettesATrier = tableauRecetteRechercheGlobale;        
+    }else{
+        lesRecettesATrier = recipes;
+    };
+    listeTagBox.forEach(function(unTag){
+        recetteParTagBrut = [];
+        lesRecettesATrier.forEach(function(uneRecette){
+            if (unTag.className == "tag tag--ingredient"){
+                uneRecette.ingredients.forEach(function(unIngredient){
+                    if (unIngredient.ingredient == unTag.innerText) {
                         recetteParTagBrut.push(uneRecette);
                     };
                 });
-            });
-        };
-        if (tableTagAppareil.length > 0){
-            tableTagAppareil.forEach(function(tag){
-                if (uneRecette.appliance == tag){
+            };
+            if (unTag.className == "tag tag--appareil"){
+                if (uneRecette.appliance == unTag.innerText){
                     recetteParTagBrut.push(uneRecette);
                 };
-            });
-        };
-        if (tableTagUstensil.length > 0){
-            uneRecette.ustensils.forEach(function(unUstensil){
-                tableTagUstensil.forEach(function(tag){
-                    if (unUstensil == tag){
+            };
+            if (unTag.className == "tag tag--ustensil"){
+                uneRecette.ustensils.forEach(function(unUstensil){
+                    if (unUstensil == unTag.innerText){
                         recetteParTagBrut.push(uneRecette);
                     };
                 });
-            });
+            };
+        });
+        if (recetteParTagBrut.length > 1){
+            recetteParTag = supprimerDoublon(recetteParTagBrut);
+        }else{
+            recetteParTag = recetteParTagBrut;
         };
+        tableauRecetteFiltreeTag = recetteParTag;
     });
-    //trier les doublons//
-    if (recetteParTagBrut.length > 0){
-        recetteParTag = supprimerDoublon(recetteParTagBrut);
-    }else{
-        recetteParTag = recetteParTagBrut;
-    };
-    return recetteParTag;
+    tableauRecetteFiltreeTag = recetteParTag;
+    return tableauRecetteFiltreeTag;
 };
 
 /*     FONCTION PRINCIPALES : SELECTIONNER UN TAG DANS LA LISTE
 --------------------------------------------------------------------*/
 
-// Ecouter la selection du tag dans la liste => injecter la table à trier
-function selectionnerTag(uneListeDeTag,listeRecetteATrier, comptage = 0){
-    var listeRecetteSortie = [];
-    var listeTagSortie = [];
-    var injectionListe = [];
-    var injectionTag = [];
-    if (listeRecetteSortie.length > 0){
-        injectionListe = listeRecetteSortie;
-        injectionTag = listeTagSortie;
-    }else{
-        injectionListe = listeRecetteATrier;
-        injectionTag = uneListeDeTag;
-    };
-    injectionTag.forEach(function(tag){
+// Ecouter la selection du tag dans la liste
+function selectionnerTag(){
+    var listeTagLvl1 = listeTagClicable();
+    listeTagLvl1.forEach(function(tag){
         tag.forEach(function(item){
             item.addEventListener("click",function(event){
                 event.stopPropagation();
                 creerTag(item);
-                var filtreParTag = rechercheParTag(injectionListe);
-                fermerTag(filtreParTag);
+                var filtreParTag = rechercheParTagV2();
+                fermerTag();
                 creerListeCarteRecette(filtreParTag);
                 actualiserListeTag(filtreParTag);
-                var listeTagIngredient = document.querySelectorAll("#liste-recherche-ingredient div");
-                var listeTagAppareil = document.querySelectorAll("#liste-recherche-appareil div");
-                var listeTagUstensil = document.querySelectorAll("#liste-recherche-ustensil div");
-                var listeTag = [listeTagIngredient, listeTagAppareil, listeTagUstensil];
-                listeRecetteSortie = filtreParTag;
-                listeTagSortie = listeTag;
-                selectionnerTag(listeTagSortie,listeRecetteSortie);
+                //tableauRecetteATrier = filtreParTag
+                selectionnerTag();
             });
         });
     });

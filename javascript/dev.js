@@ -17,14 +17,20 @@
 -------------------------------------------------*/
 
 // Recherche barre de recherche globale
-function rechercheGlobale(listeATrier){
+function rechercheGlobale(){
     rechGlobale.addEventListener("input",function(){
+        var lesRecetteATrier = [];
         var recetteTrieeGlobalBrut = [];
-        var recetteTrieeGlobal = [];
+        var unTagOuvert = document.querySelectorAll(".far.fa-times-circle");
         if (rechGlobale.value.length >= 3){
             var valeurChercher = rechGlobale.value.trim()
             var valRechRegex = new RegExp(valeurChercher, 'i');
-            listeATrier.forEach(function(uneRecette){
+            if (tableauRecetteFiltreeTag.length > 0){// definit la liste des recettes à trier
+                lesRecetteATrier = tableauRecetteFiltreeTag;
+            }else{
+                lesRecetteATrier = recipes;
+            };
+            lesRecetteATrier.forEach(function(uneRecette){
                 if (uneRecette.name.search(valRechRegex) > -1){
                     recetteTrieeGlobalBrut.push(uneRecette);
                 };
@@ -38,28 +44,43 @@ function rechercheGlobale(listeATrier){
                 };
             });
             if (recetteTrieeGlobalBrut.length > 0){
-                recetteTrieeGlobal = supprimerDoublon(recetteTrieeGlobalBrut);
+                tableauRecetteRechercheGlobale = supprimerDoublon(recetteTrieeGlobalBrut);
                 carteBox.innerText = "";
-                creerListeCarteRecette(recetteTrieeGlobal);
+                creerListeCarteRecette(tableauRecetteRechercheGlobale);
             }else{
-                recetteTrieeGlobal = recetteTrieeGlobalBrut;
+                tableauRecetteRechercheGlobale = recetteTrieeGlobalBrut;
                 pasDeResultat();
             };
-        }else if (rechGlobale.value.length < 3) {
+        }else if (rechGlobale.value.length < 3 && unTagOuvert.length == 0){
             carteBox.innerText="";
-            recetteTrieeGlobal = listeATrier;
-            creerListeCarteRecette(listeATrier);
+            tableauRecetteRechercheGlobale = recipes;
+            creerListeCarteRecette(recipes);
         };
-        console.log(recetteTrieeGlobal);
-        return recetteTrieeGlobal;
-    }); 
+        actualiserListeTag(tableauRecetteRechercheGlobale);
+        tableauTagClicable = listeTagClicable()
+        selectionnerTag(tableauTagClicable,tableauRecetteRechercheGlobale);
+        console.log("Recette à triée sortie de la recherche globale ", tableauRecetteRechercheGlobale);
+    });
+    tableauTagClicable = listeTagClicable();
+    selectionnerTag(tableauTagClicable,tableauRecetteRechercheGlobale);
 };
 
+
+// Fonction afficher un message de recherche infructeuse
 function pasDeResultat(){
     var carteListe = document.querySelectorAll(".carte");
     carteListe.forEach(function(carte){
         carte.remove();
     });
-    carteBox.innerText = "PAS DE RESULTAT POUR VOTRE RECHERCHE"
-}
+    carteBox.innerText = "PAS DE RESULTAT POUR VOTRE RECHERCHE";
+};
+
+
+
+
+///////////////////////////////////////////////////////////////////
+
+
+
+
 
