@@ -7,7 +7,6 @@ var tableauRecetteRechercheGlobale = [];
 var tableauRecetteFiltreeTag = [];
 // Initialiser l'indicateur de suppression en cours
 var suppressionEnCours = 0;
-
 // Initialiser l'affichage des filtres
 afficherFiltreIngredient();
 afficherFiltreAppareil();
@@ -19,15 +18,10 @@ actualiserListeTag(recipes);
 // Initialiser un tableau de stockage des liste de tag clicable
 var tableauTagClicable = listeTagClicable();
 
-
 /*     PHASE DE RECHERCHE
 -------------------------------------------------*/
 rechercheGlobale();
 
 
-
-
-// "bouton-test" simulation de recherche
-
-document.getElementById("bouton-test").addEventListener("click",function(){
-}); 
+// en test
+rechercherTag();

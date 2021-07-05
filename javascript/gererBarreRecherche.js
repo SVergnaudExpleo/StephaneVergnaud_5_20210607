@@ -6,7 +6,7 @@ function pasDeResultat(){
     carteListe.forEach(function(carte){
         carte.remove();
     });
-    carteBox.innerText = "PAS DE RESULTAT POUR VOTRE RECHERCHE";
+    carteBox.innerText = "Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
 };
 
 ///// FONCTION PRINCIPALE /////
@@ -20,7 +20,7 @@ function rechercheGlobale(){
         if (rechGlobale.value.length >= 3){
             var valeurChercher = rechGlobale.value.trim()
             var valRechRegex = new RegExp(valeurChercher, 'i');
-            if (unTagOuvert.length > 0){// definit la liste des recettes à trier
+            if (unTagOuvert.length > 0){
                 lesRecetteATrier = tableauRecetteFiltreeTag;
             }else{
                 lesRecetteATrier = recipes;
