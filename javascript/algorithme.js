@@ -22,4 +22,3 @@ retirerRechercheTag();
 /*     PHASE DE RECHERCHE _________________________________________*/
 
 rechercheGlobale();
-//rechercherTag();

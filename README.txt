@@ -9,12 +9,18 @@ NOTE TECHNIQUE
 
 ----------------------------------------- Note 1 --------------------------------------------------
 
+VERSION ALLEGEE :
+
+Version avec la recherche dans la barre de recherche globale uniquement
+
+----------------------------------------- Note 2 --------------------------------------------------
+
 Logiciel de codage : Microsoft Visual Studio Code
 HTML => HTML5
 CSS => Compilé depuis SASS
 JavaScript => JS Vanilla
 
------------------------------------------ Note 2 --------------------------------------------------
+----------------------------------------- Note 3 --------------------------------------------------
 
 Pour faciliter la maintenance du site (nottamment la mise en forme) vous trouverez ci-dessous,
 les versions HTML des tag et des cartes de recette qui sont générés par le JavaScript.
