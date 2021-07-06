@@ -17,6 +17,11 @@
 -------------------------------------------------*/
 
 // fonction retirer la recherche dans les tags
-function retirerRechercheTag(){
-    
-};
+function retirerRechercheTag() {
+    rechIngredient.style.display = "none";
+    titreIngredient.style.display = "grid";
+    rechAppareil.style.display = "none";
+    titreAppareil.style.display = "grid";
+    rechUstensil.style.display = "none";
+    titreUstensil.style.display = "grid";
+}

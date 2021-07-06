@@ -2,34 +2,34 @@
 -------------------------------------------------*/
 
 // Traiter l'orthographe de "quantity" des recettes
-function traitementCaseQt(ing){ 
-    if(ing.quantity != "" && ing.quantity != undefined){
+function traitementCaseQt(ing) {
+    if (ing.quantity !== "" && ing.quantity !== undefined) {
         return ing.quantity;
-    }else if(ing.quantite != "" && ing.quantite != undefined){
+    }else if (ing.quantite !== "" && ing.quantite != undefined) {
         return ing.quantite;
-    }else{
+    }else {
         return "Selon votre goût";
-    };
-};
+    }
+}
 // Traiter présence et type de "unit" des recettes 
-function traitementUnit(ing){
+function traitementUnit(ing) {
     var casGramme = "grammes" || "gramme";
     var casCuillereSoupe = "cuillères à soupe" || "cuillère à soupe";
     var casCuillereCafe = "cuillères à café" || "cuillère à café";
-    if (ing.unit != casGramme && ing.unit != casCuillereSoupe && ing.unit != casCuillereCafe && ing.unit != "" && ing.unit!= undefined) {
+    if (ing.unit != casGramme && ing.unit != casCuillereSoupe && ing.unit != casCuillereCafe && ing.unit !== "" && ing.unit != undefined) {
         return ing.unit;
-    }else if(ing.unit == casGramme){
+    }else if (ing.unit == casGramme) {
         return "g";
-    }else if(ing.unit == casCuillereSoupe){
+    }else if (ing.unit == casCuillereSoupe) {
         return "Cuillère(s)";
-    }else if(ing.unit == casCuillereCafe){
+    }else if (ing.unit == casCuillereCafe) {
         return "Cuillère(s)";
-    }else if(ing.unit == undefined ){
+    }else if (ing.unit == undefined ) {
         return "";
-    };
-};
+    }
+}
 // Fonction créer une carte
-function creerCarteRecette(traiterUneRecette){
+function creerCarteRecette(traiterUneRecette) {
     const nouvDivCarte = document.createElement("div");
     nouvDivCarte.className = "carte";
     carteBox.appendChild(nouvDivCarte);
@@ -70,18 +70,18 @@ function creerCarteRecette(traiterUneRecette){
                 const nouvPDescription = document.createElement("p");// injecter description
                 nouvPDescription.textContent = traiterUneRecette.description;
                 nouvDivDescription.appendChild(nouvPDescription);
-};
+}
 
 /*     FONCTION PRINCIPALE : GENERER L'AFFICHAGE HTML DE LA CARTE
 ----------------------------------------------------------------------*/
 
 // Fonction afficher les cartes de recettes
-function creerListeCarteRecette(tableRecette){
+function creerListeCarteRecette(tableRecette) {
     var carteListe = document.querySelectorAll(".carte");
     carteListe.forEach(function(carte){
         carte.remove();
     });
     tableRecette.forEach(function(recette){
         creerCarteRecette(recette);
-    });
-};
+    })
+}

@@ -18,10 +18,11 @@ actualiserListeTag(recipes);
 // Initialiser un tableau de stockage des liste de tag clicable
 var tableauTagClicable = listeTagClicable();
 
+/*     PHASE DE VERIONNING
+-------------------------------------------------*/
+retirerRechercheTag();
+
 /*     PHASE DE RECHERCHE
 -------------------------------------------------*/
 rechercheGlobale();
-
-
-// en test
 rechercherTag();

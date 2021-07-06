@@ -17,6 +17,9 @@ const tagBox = document.getElementById("tag-box");
 const listeIngredient = document.getElementById("liste-recherche-ingredient");
 const listeAppareil = document.getElementById("liste-recherche-appareil");
 const listUstensil = document.getElementById("liste-recherche-ustensil");
+const titreIngredient = document.getElementById("titre-ingredient");
+const titreAppareil = document.getElementById("titre-appareil");
+const titreUstensil = document.getElementById("titre-ustensil");
 // Constante du DOM recherche globale
 const rechGlobale = document.getElementById("recherche-globale");
 // Constante du DOM recherche de tag

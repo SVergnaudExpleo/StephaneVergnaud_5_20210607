@@ -32,6 +32,14 @@ header{
         flex-direction: row;
     }
 }
+// Titre alternatif des liste de tag
+.titre-alternatif{
+    display: grid;
+    font-size: 18px;
+    font-weight: 700;
+    align-items: center;
+}
+
 // Apparence des tag
 .tag-box{
     display: flex;

@@ -34,12 +34,13 @@
             <!-- Filtre des ingrédients-->
             <div class="filtre-box__ingredient">
                 <button id="switch-on-ingredient" class="bouton bouton--on bouton--on-ingredient">
-                    Ingrédient <div class="spacer--20"></div>
+                    Ingrédient <span class="spacer--20"></span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div id="filtre-developpe-ingredient" class="filtre-developpe filtre-developpe--ingredient">
                     <div class="recherche recherche--filtre">
                         <input id="recherche-ingredient" class="input-recherche input-recherche--ingredient" type="search" placeholder="Recherche un ingrédient">
+                        <div id="titre-ingredient" class="input-recherche input-recherche--ingredient titre-alternatif" style="display: none;">Selectionner un tag d'Ingrédient</div>
                         <i id="switch-off-ingredient" class="bouton bouton--off bouton--off-ingredient fas fa-chevron-up"></i>
                     </div>
                     <div id="liste-recherche-ingredient" class="liste-recherche liste-recherche--ingredient">
@@ -49,12 +50,13 @@
             <!-- Filtre appareil-->
             <div class="filtre-box__appareil">
                 <button id="switch-on-appareil" class="bouton bouton--on bouton--on-appareil">
-                    Appareil <div class="spacer--20"></div>
+                    Appareil <span class="spacer--20"></span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div id="filtre-developpe-appareil" class="filtre-developpe filtre-developpe--appareil">
                     <div class="recherche recherche--filtre">
                         <input id="recherche-appareil" class="input-recherche input-recherche--appareil" type="search" placeholder="Recherche un appareil">
+                        <div id="titre-appareil" class="input-recherche input-recherche--appareil titre-alternatif" style="display: none;">Selectionner un tag d'Appareil</div>
                         <i id="switch-off-appareil" class="bouton bouton--off bouton--off-appareil fas fa-chevron-up"></i>
                     </div>
                     <div id="liste-recherche-appareil" class="liste-recherche liste-recherche--appareil">
@@ -64,12 +66,13 @@
             <!-- Filtre ustensile-->
             <div class="filtre-box__ustensil">
                 <button id="switch-on-ustensil" class="bouton bouton--on bouton--on-ustensil">
-                    Ustensiles <div class="spacer--20"></div>
+                    Ustensiles <span class="spacer--20"></span>
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <div id="filtre-developpe-ustensil" class="filtre-developpe filtre-developpe--ustensil">
                     <div class="recherche recherche--filtre">
                         <input id="recherche-ustensil" class="input-recherche input-recherche--ustensil" type="search" placeholder="Recherche un ustensile">
+                        <div id="titre-ustensil" class="input-recherche input-recherche--ustensil titre-alternatif" style="display: none;">Selectionner un tag d'Ustensile</div>
                         <i id="switch-off-ustensil" class="bouton bouton--off bouton--off-ustensil fas fa-chevron-up"></i>
                     </div>
                     <div id="liste-recherche-ustensil" class="liste-recherche liste-recherche--ustensil">
@@ -90,6 +93,6 @@
         <!--fonction JS en developpement--> 
         <script src="./javascript/dev.js"></script>
 
-        <script src="./javascript/algorythme.js"></script>
+        <script src="./javascript/algorithme.js"></script>
     </body>
 </html>
