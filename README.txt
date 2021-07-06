@@ -9,9 +9,9 @@ NOTE TECHNIQUE
 
 ----------------------------------------- Note 1 --------------------------------------------------
 
-VERSION ALLEGEE :
+VERSION COMPLETE :
 
-Version avec la recherche dans la barre de recherche globale uniquement
+Version avec la recherche dans la barre de recherche globale et la recherche dans les listes de tags
 
 ----------------------------------------- Note 2 --------------------------------------------------
 
