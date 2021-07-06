@@ -1,5 +1,4 @@
-/*     FONCTION AFFICHER LES FILTRES
--------------------------------------------------*/
+/*     FONCTION AFFICHER LES FILTRES ___________________________________*/
 
 // Afficher et masquer le filtre ingredient
 function afficherFiltreIngredient() {
@@ -50,8 +49,7 @@ function afficherFiltreUstensil() {
     });
 }
 
-/*     FONCTION ACTUALISER LES LISTES DE TAG       
--------------------------------------------------*/
+/*     FONCTION ACTUALISER LES LISTES DE TAG ___________________________*/
 
 // Fonction créer une liste brute d'ingredient
 function recupTagIngredient(listeRecettes) {
@@ -131,8 +129,7 @@ function listeTagClicable() {
     return listeTag;
 }
 
-/* FONCTION SELECTIONNER ET SUPPRIMER UN TAG
--------------------------------------------------*/
+/* FONCTION SELECTIONNER ET SUPPRIMER UN TAG ___________________________*/
 
 // Fonction générer l'affichage HTML d'un tag  depuis une liste de tag
 function creerTag(param) {
@@ -192,8 +189,7 @@ function fermerTagV2() {
     }
 }
 
-/*     FONCTION RECHERCHER PAR TAG
--------------------------------------------------*/
+/*     FONCTION RECHERCHER PAR TAG _____________________________________*/
 
 // Fonction rechercher par le dernier tag entré
 function rechercheParTagV2() {
@@ -257,8 +253,7 @@ function rechercheParTagV2() {
     return tableauRecetteFiltreeTag;
 }
 
-/*     FONCTION PRINCIPALES : SELECTIONNER UN TAG DANS LA LISTE
---------------------------------------------------------------------*/
+/*     FONCTION PRINCIPALES : SELECTIONNER UN TAG DANS LA LISTE ________*/
 
 // Ecouter la selection du tag dans la liste
 function selectionnerTag() {

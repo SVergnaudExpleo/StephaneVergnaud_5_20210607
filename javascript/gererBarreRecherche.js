@@ -1,4 +1,4 @@
-///// FONCTION OUTIL /////
+/*      FONCTION OUTIL ________________________*/
 
 // Fonction afficher un message de recherche infructeuse
 function pasDeResultat() {
@@ -9,7 +9,7 @@ function pasDeResultat() {
     carteBox.innerText = "Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
 }
 
-///// FONCTION PRINCIPALE /////
+/* FONCTION PRINCIPALE ________________________*/
 
 // Recherche dans la barre de recherche globale
 function rechercheGlobale() {
@@ -143,4 +143,14 @@ function rechercherTag() {
             listUstensil.innerHTML = "<div>Aucun tag ne correspond à la recherche<div/>";
         }
     });
+}
+
+// Fonction retirer la possibilité de rechercher dans les tags
+function retirerRechercheTag() {
+    rechIngredient.style.display = "none";
+    titreIngredient.style.display = "grid";
+    rechAppareil.style.display = "none";
+    titreAppareil.style.display = "grid";
+    rechUstensil.style.display = "none";
+    titreUstensil.style.display = "grid";
 }

@@ -1,5 +1,4 @@
-/*    FONCTION OUTIL
--------------------------------------------------*/
+/*    FONCTION OUTIL ___________________________________________________*/
 
 // Traiter l'orthographe de "quantity" des recettes
 function traitementCaseQt(ing) {
@@ -72,8 +71,7 @@ function creerCarteRecette(traiterUneRecette) {
                 nouvDivDescription.appendChild(nouvPDescription);
 }
 
-/*     FONCTION PRINCIPALE : GENERER L'AFFICHAGE HTML DE LA CARTE
-----------------------------------------------------------------------*/
+/*     FONCTION PRINCIPALE : GENERER L'AFFICHAGE HTML DE LA CARTE ______*/
 
 // Fonction afficher les cartes de recettes
 function creerListeCarteRecette(tableRecette) {
