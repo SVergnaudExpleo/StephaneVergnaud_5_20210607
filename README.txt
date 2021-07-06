@@ -1,14 +1,38 @@
-README
+                                        README
 
-// aspect d'un tag HTML //
+___________________________________________________________________________________________________
+
+                    Bonjour, et bienvenue sur le site "Les Petits Plats"
+___________________________________________________________________________________________________
+
+NOTE TECHNIQUE
+
+----------------------------------------- Note 1 --------------------------------------------------
+
+VERSION ALLEGEE :
+
+Version avec la recherche dans la barre de recherche globale uniquement
+
+----------------------------------------- Note 2 --------------------------------------------------
+
+Logiciel de codage : Microsoft Visual Studio Code
+HTML => HTML5
+CSS => Compilé depuis SASS
+JavaScript => JS Vanilla
+
+----------------------------------------- Note 3 --------------------------------------------------
+
+Pour faciliter la maintenance du site (nottamment la mise en forme) vous trouverez ci-dessous,
+les versions HTML des tag et des cartes de recette qui sont générés par le JavaScript.
+
+// aspect d'un tag HTML // ________________________________________________________________________
 
 <div class="tag tag--ingredient">
     <div class="valeur-tag">tag test ingredient</div>
     <i class="far fa-times-circle"></i>
 </div>
 
-
-// Aspect d'une carte recette HTML //
+// Aspect d'une carte recette HTML // _____________________________________________________________
 
 <div id="carte-recette" class="carte">
     <div class="carte-miniature"></div>
