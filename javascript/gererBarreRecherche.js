@@ -13,6 +13,8 @@ function pasDeResultat() {
 
 // Recherche dans la barre de recherche globale
 function rechercheGlobale() {
+    var uneRechercheGlobalEnCour = 0;
+    var motTaperPrecedent = 0;
     rechGlobale.addEventListener("input", function () {
         var lesRecetteATrier = [];
         var recetteTrieeGlobalBrut = [];
@@ -20,11 +22,24 @@ function rechercheGlobale() {
         if (rechGlobale.value.length >= 3) {
             var valeurChercher = rechGlobale.value.trim();
             var valRechRegex = new RegExp(valeurChercher, 'i');
+            var motEncourDeFrappe = rechGlobale.value.length;
+
+
             if (unTagOuvert.length > 0) {
                 lesRecetteATrier = tableauRecetteFiltreeTag;
+            } else if (uneRechercheGlobalEnCour > 0) {
+                if (motEncourDeFrappe > motTaperPrecedent) {
+                    lesRecetteATrier = tableauRecetteRechercheGlobale;
+                } else {
+                    lesRecetteATrier = recipes;
+                }
+                motTaperPrecedent = rechGlobale.value.length;
             } else {
                 lesRecetteATrier = recipes;
             }
+
+            
+            uneRechercheGlobalEnCour = 1;
             lesRecetteATrier.forEach(function (uneRecette) {
                 if (uneRecette.name.search(valRechRegex) > -1){
                     recetteTrieeGlobalBrut.push(uneRecette);
@@ -49,6 +64,7 @@ function rechercheGlobale() {
             actualiserListeTag(tableauRecetteRechercheGlobale);
             tableauTagClicable = listeTagClicable();
         } else if (rechGlobale.value.length < 3 && unTagOuvert.length === 0) {
+            uneRechercheGlobalEnCour = 0;
             carteBox.innerText = "";
             tableauRecetteFiltreeTag = [];
             tableauRecetteRechercheGlobale = recipes;
@@ -56,6 +72,7 @@ function rechercheGlobale() {
             actualiserListeTag(tableauRecetteRechercheGlobale);
             tableauTagClicable = listeTagClicable();
         } else if (rechGlobale.value.length < 3 && unTagOuvert.length > 0) {
+            uneRechercheGlobalEnCour = 0;
             tableauRecetteRechercheGlobale = recipes;
             rechercheParTagV2();
             creerListeCarteRecette(tableauRecetteFiltreeTag);
