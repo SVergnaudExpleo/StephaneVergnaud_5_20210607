@@ -267,7 +267,6 @@ function selectionnerTag() {
                 fermerTagV2();
                 creerListeCarteRecette(tableauRecetteFiltreeTag);
                 actualiserListeTag(tableauRecetteFiltreeTag);
-                rechercherTag();
                 selectionnerTag();
             });
         });
