@@ -144,13 +144,3 @@ function rechercherTag() {
         }
     });
 }
-
-// Fonction retirer la possibilité de rechercher dans les tags
-function retirerRechercheTag() {
-    rechIngredient.style.display = "none";
-    titreIngredient.style.display = "grid";
-    rechAppareil.style.display = "none";
-    titreAppareil.style.display = "grid";
-    rechUstensil.style.display = "none";
-    titreUstensil.style.display = "grid";
-}

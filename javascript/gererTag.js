@@ -183,6 +183,7 @@ function fermerTagV2() {
                     selectionnerTag();
                 }
                 suppressionEnCours = 0;
+                rechercherTag();
                 fermerTagV2();
             });
         });
