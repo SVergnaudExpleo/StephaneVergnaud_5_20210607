@@ -23,8 +23,6 @@ function rechercheGlobale() {
             var valeurChercher = rechGlobale.value.trim();
             var valRechRegex = new RegExp(valeurChercher, 'i');
             var motEncourDeFrappe = rechGlobale.value.length;
-
-
             if (unTagOuvert.length > 0) {
                 lesRecetteATrier = tableauRecetteFiltreeTag;
             } else if (uneRechercheGlobalEnCour > 0) {
@@ -37,8 +35,6 @@ function rechercheGlobale() {
             } else {
                 lesRecetteATrier = recipes;
             }
-
-            
             uneRechercheGlobalEnCour = 1;
             lesRecetteATrier.forEach(function (uneRecette) {
                 if (uneRecette.name.search(valRechRegex) > -1){
