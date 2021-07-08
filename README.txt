@@ -9,9 +9,9 @@ NOTE TECHNIQUE
 
 ----------------------------------------- Note 1 --------------------------------------------------
 
-VERSION COMPLETE :
+VERSION RECHECHE PAR ITERATION :
 
-Version avec la recherche dans la barre de recherche globale et la recherche dans les listes de tags
+Version avec la recherche globale qui execute des passes successives sur le tableau trié précedemment
 
 ----------------------------------------- Note 2 --------------------------------------------------
 
