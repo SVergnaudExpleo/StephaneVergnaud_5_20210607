@@ -55,7 +55,7 @@ function rechercheGlobale() {
             });
             if (recetteTrieeGlobalBrut.length > 0) {
                 tableauRecetteRechercheGlobale = supprimerDoublon(recetteTrieeGlobalBrut);
-                carteBox.innerText = "";
+                carteBox.linnerText = "";
                 creerListeCarteRecette(tableauRecetteRechercheGlobale);
             } else {
                 tableauRecetteRechercheGlobale = recetteTrieeGlobalBrut;
@@ -73,6 +73,7 @@ function rechercheGlobale() {
             tableauTagClicable = listeTagClicable();
         } else if (rechGlobale.value.length < 3 && unTagOuvert.length > 0) {
             uneRechercheGlobalEnCour = 0;
+            carteBox.innerText = "";
             tableauRecetteRechercheGlobale = recipes;
             rechercheParTagV2();
             creerListeCarteRecette(tableauRecetteFiltreeTag);
