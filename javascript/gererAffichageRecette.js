@@ -81,5 +81,5 @@ function creerListeCarteRecette(tableRecette) {
     });
     tableRecette.forEach(function(recette){
         creerCarteRecette(recette);
-    })
+    });
 }
