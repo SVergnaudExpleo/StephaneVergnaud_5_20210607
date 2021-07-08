@@ -56,6 +56,7 @@ function rechercheGlobale() {
             actualiserListeTag(tableauRecetteRechercheGlobale);
             tableauTagClicable = listeTagClicable();
         } else if (rechGlobale.value.length < 3 && unTagOuvert.length > 0) {
+            carteBox.innerText = "";
             tableauRecetteRechercheGlobale = recipes;
             rechercheParTagV2();
             creerListeCarteRecette(tableauRecetteFiltreeTag);
