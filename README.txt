@@ -9,9 +9,9 @@ NOTE TECHNIQUE
 
 ----------------------------------------- Note 1 --------------------------------------------------
 
-VERSION COMPLETE :
+VERSION RECHERCHE PAR BDD :
 
-Version avec la recherche dans la barre de recherche globale et la recherche dans les listes de tags
+Version avec la recherche globale qui effectue un tri sur depuis la base de donnée
 
 ----------------------------------------- Note 2 --------------------------------------------------
 
