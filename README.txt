@@ -22,7 +22,7 @@ JavaScript => JS Vanilla
 
 ----------------------------------------- Note 3 --------------------------------------------------
 
-Pour faciliter la maintenance du site (nottamment la mise en forme) vous trouverez ci-dessous,
+Pour faciliter la maintenance du site (notamment la mise en forme) vous trouverez ci-dessous,
 les versions HTML des tag et des cartes de recette qui sont générés par le JavaScript.
 
 // aspect d'un tag HTML // ________________________________________________________________________

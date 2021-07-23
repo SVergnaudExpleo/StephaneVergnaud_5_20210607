@@ -51,7 +51,7 @@ function rechercheGlobale() {
             });
             if (recetteTrieeGlobalBrut.length > 0) {
                 tableauRecetteRechercheGlobale = supprimerDoublon(recetteTrieeGlobalBrut);
-                carteBox.linnerText = "";
+                carteBox.innerText = "";
                 creerListeCarteRecette(tableauRecetteRechercheGlobale);
             } else {
                 tableauRecetteRechercheGlobale = recetteTrieeGlobalBrut;
